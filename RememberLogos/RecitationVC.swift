@@ -12,6 +12,9 @@ import NaverSpeech
 
 class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSKRecognizerDelegate {
     
+    @IBOutlet weak var courseRangeLbl: UILabel!
+    @IBOutlet weak var courseRangePb: UIProgressView!
+    
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var voiceTextView: UITextView!
     @IBOutlet weak var recitaionButton: UIButton!
@@ -27,7 +30,8 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     private let ClientID = "710CwSWlxkzXAQdSa6CV"
     private let nskSpeechRecognizer: NSKRecognizer
     
-    required init?(coder aDecoder: NSCoder) { // NSKRecognizer를 초기화 하는데 필요한 NSKRecognizerConfiguration을 생성
+    required init?(coder aDecoder: NSCoder) {
+        // NSKRecognizer를 초기화 하는데 필요한 NSKRecognizerConfiguration을 생성
         let configuration = NSKRecognizerConfiguration(clientID: ClientID)
         configuration?.canQuestionDetected = true
         self.nskSpeechRecognizer = NSKRecognizer(configuration: configuration)
@@ -45,6 +49,10 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         messages.append(Message(book: "시편", chapter: 23, verse: 4, text: "내가 사망의 음침한 골짜기로 다닐지라도 해를 두려워하지 않을 것은 주께서 나와 함께 하심이라 주의 지팡이와 막대기가 나를 안위하시나이다"))
         messages.append(Message(book: "시편", chapter: 23, verse: 5, text: "주께서 내 원수의 목전에서 내게 상을 차려 주시고 기름을 내 머리에 부으셨으니 내 잔이 넘치나이다"))
         messages.append(Message(book: "시편", chapter: 23, verse: 6, text: "내 평생에 선하심과 인자하심이 반드시 나를 따르리니 내가 여호와의 집에 영원히 살리로다"))
+        
+        
+        self.courseRangeLbl.text = "시편 23:1~16"
+        self.courseRangePb.setProgress(Float(currentVerse + 1) / Float(messages.count), animated: true)
         
         self.currentMessage = messages[0]
         self.messageIndex = messages[self.currentVerse].text.startIndex
@@ -211,6 +219,7 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             return
         }
         messageTableView.selectRow(at: IndexPath(row: row, section:0), animated: true, scrollPosition: UITableViewScrollPosition.middle)
+        self.courseRangePb.setProgress(Float(currentVerse + 1) / Float(messages.count), animated: true)
         shadowSelectedMessage()
     }
     

@@ -23,11 +23,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시편 23:1~16" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkn-RT-ex0" userLabel="CourseRange">
+                                <rect key="frame" x="16" y="19" width="94" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PnX-th-wpr">
+                                <rect key="frame" x="125" y="28" width="234" height="2"/>
+                            </progressView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="-1" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HDr-SR-t78" userLabel="Message Table View">
-                                <rect key="frame" x="16" y="28" width="343" height="333.5"/>
+                                <rect key="frame" x="16" y="55" width="343" height="333.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" id="m5D-hn-xCm" customClass="MessageCell" customModule="RememberLogos" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MessageCell" id="m5D-hn-xCm" customClass="MessageCell" customModule="RememberLogos" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m5D-hn-xCm" id="Zhq-TR-vlR">
@@ -70,7 +79,7 @@
                                 </connections>
                             </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="버튼을 누르면 음상인식이 시작됩니다." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bhE-t8-I0k" userLabel="VoiceText">
-                                <rect key="frame" x="16" y="396.5" width="343" height="142.5"/>
+                                <rect key="frame" x="16" y="423.5" width="343" height="115.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -82,6 +91,9 @@
                                     <constraint firstAttribute="height" constant="120" id="WJS-oh-3xR"/>
                                 </constraints>
                                 <state key="normal" image="Record"/>
+                                <connections>
+                                    <action selector="startRecitation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X15-nk-AVe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -89,16 +101,23 @@
                             <constraint firstItem="HDr-SR-t78" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="1Z3-7G-cdd"/>
                             <constraint firstItem="HDr-SR-t78" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="1lc-VY-srZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bhE-t8-I0k" secondAttribute="trailing" id="2Jo-XH-caV"/>
+                            <constraint firstItem="PnX-th-wpr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="5hB-bJ-Axb"/>
+                            <constraint firstItem="HDr-SR-t78" firstAttribute="top" secondItem="PnX-th-wpr" secondAttribute="bottom" constant="25" id="Akv-gz-vHT"/>
+                            <constraint firstItem="Fkn-RT-ex0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="CW6-AQ-HzJ"/>
                             <constraint firstItem="gq5-4m-aZH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="D7p-le-gdn"/>
+                            <constraint firstItem="Fkn-RT-ex0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="19" id="IRQ-qf-wkv"/>
                             <constraint firstItem="HDr-SR-t78" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="P26-7P-bqO"/>
-                            <constraint firstItem="HDr-SR-t78" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Uny-d5-grH"/>
                             <constraint firstItem="bhE-t8-I0k" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ef5-Dz-s7b"/>
+                            <constraint firstItem="PnX-th-wpr" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="oai-Mt-HCN"/>
+                            <constraint firstItem="PnX-th-wpr" firstAttribute="leading" secondItem="Fkn-RT-ex0" secondAttribute="trailing" constant="15" id="see-KQ-4AA"/>
                             <constraint firstItem="gq5-4m-aZH" firstAttribute="top" secondItem="bhE-t8-I0k" secondAttribute="bottom" constant="8" id="skg-cQ-4QH"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gq5-4m-aZH" secondAttribute="bottom" id="tfc-jp-X0w"/>
                             <constraint firstItem="bhE-t8-I0k" firstAttribute="top" secondItem="HDr-SR-t78" secondAttribute="bottom" constant="35" id="z47-eG-Fjl"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="courseRangeLbl" destination="Fkn-RT-ex0" id="uba-sG-NnZ"/>
+                        <outlet property="courseRangePb" destination="PnX-th-wpr" id="icd-vK-uXd"/>
                         <outlet property="messageTableView" destination="HDr-SR-t78" id="3u9-bX-FpL"/>
                         <outlet property="recitaionButton" destination="gq5-4m-aZH" id="4qd-S2-sOk"/>
                         <outlet property="voiceTextView" destination="bhE-t8-I0k" id="aIp-Og-gD7"/>

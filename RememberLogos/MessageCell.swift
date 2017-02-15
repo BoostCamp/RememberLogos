@@ -17,7 +17,7 @@ class MessageCell: UITableViewCell {
         super.awakeFromNib()
         
 //        self.verseLabel.textColor = UIColor.clear
-//        self.messageLabel.textColor = UIColor.clear
+        self.messageLabel.textColor = UIColor.clear
     }
     
     func updateUI(message : Message) {
