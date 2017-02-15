@@ -48,9 +48,9 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.navigationItem.title = course.name
         self.courseRangeLbl.text = course.desc
         
-        self.currentVerse = 5
+        self.currentVerse = 0
         self.currentMessage = course.messages[currentVerse]
-        self.courseRangePb.setProgress(Float(currentVerse + 1) / Float(messages.count), animated: true)
+        self.courseRangePb.setProgress(Float(currentVerse) / Float(messages.count), animated: true)
         
         self.messageIndex = messages[self.currentVerse].text.startIndex
     }
@@ -92,18 +92,24 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func recognizer(_ aRecognizer: NSKRecognizer!, didReceive aResult: NSKRecognizedResult!) {
         if let result = aResult.results.first as? String {
-            print("Final result: \(result)")
-            compareMessage(aResult: result)
+//            print("Final result: \(result)")
             voiceTextView.text = result
+            compareMessage(aResult: result)
         }
         
         stopRecognizer()
     }
     
+    var privResult: String!
+    
     public func recognizer(_ aRecognizer: NSKRecognizer!, didReceivePartialResult aResult: String!) {
-        print("Partial result: \(aResult)")
-        self.voiceTextView.text = aResult
-        compareMessage(aResult: aResult)
+
+        if (privResult == nil) || (aResult != privResult) {
+//            print("Partial result: \(aResult)")
+            self.voiceTextView.text = aResult
+//            compareMessage(aResult: aResult)
+        }
+        privResult = aResult
     }
     
     public func recognizerDidEnterReady(_ aRecognizer: NSKRecognizer!) {
@@ -124,20 +130,23 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         if let selectedRow = messageTableView.indexPathForSelectedRow,
             let cell = messageTableView.cellForRow(at: selectedRow) as? MessageCell,
             let label = cell.messageLabel,
+            let message = label.text,
             let attributedText = label.attributedText {
             
             var isChanged = false, isVerseEnd = false
-            let message = attributedText.string
             
             for ch in aResult.characters {
-                if messageIndex >= message.endIndex {
-                    isVerseEnd = true
-                    break
-                }
-                
+//                print("messageIndex:\(messageIndex), message.endIndex: \(message.endIndex)")
                 if(ch == message[messageIndex]) {
-                    messageIndex = message.index(after: messageIndex)
+//                    print("ch: \(ch)")
                     isChanged = true
+                    messageIndex = message.index(after: messageIndex)
+                    
+                    if messageIndex >= message.endIndex {
+                        isVerseEnd = true
+                        break
+                    }
+                    
                 }
             }
             
@@ -157,22 +166,22 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                                           message.distance(from: message.startIndex, to: messageIndex))
         
         
-        let shadowRange = NSMakeRange(message.distance(from: message.startIndex, to: messageIndex),
-                                      message.distance(from: messageIndex, to: message.endIndex))
+//        let shadowRange = NSMakeRange(message.distance(from: message.startIndex, to: messageIndex),
+//                                      message.distance(from: messageIndex, to: message.endIndex))
         
         
         let mutableAttrStr = NSMutableAttributedString(attributedString: attributedText)
         
         mutableAttrStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: discoveredRange)
-        mutableAttrStr.removeAttribute(NSShadowAttributeName, range: discoveredRange)
+//        mutableAttrStr.removeAttribute(NSShadowAttributeName, range: discoveredRange)
         
         
-        mutableAttrStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.clear, range: shadowRange)
-        
-        let shadow = NSShadow()
-        shadow.shadowColor = UIColor.blue
-        shadow.shadowBlurRadius = 10.0
-        mutableAttrStr.addAttribute(NSShadowAttributeName, value: shadow, range: shadowRange)
+//        mutableAttrStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.clear, range: shadowRange)
+//        
+//        let shadow = NSShadow()
+//        shadow.shadowColor = UIColor.blue
+//        shadow.shadowBlurRadius = 10.0
+//        mutableAttrStr.addAttribute(NSShadowAttributeName, value: shadow, range: shadowRange)
         
         detailTextLabel.attributedText = mutableAttrStr
     }
@@ -218,8 +227,8 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             return
         }
         messageTableView.selectRow(at: IndexPath(row: row, section:0), animated: true, scrollPosition: UITableViewScrollPosition.middle)
-        self.courseRangePb.setProgress(Float(currentVerse + 1) / Float(messages.count), animated: true)
-        shadowSelectedMessage()
+        self.courseRangePb.setProgress(Float(currentVerse) / Float(messages.count), animated: true)
+//        shadowSelectedMessage()
     }
     
     func shadowSelectedMessage() {
