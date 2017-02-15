@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A9364831E5454DC007D8AC4 /* CourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9364821E5454DC007D8AC4 /* CourseVC.swift */; };
+		5A9364851E54555E007D8AC4 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9364841E54555E007D8AC4 /* Course.swift */; };
 		5AE622FD1E5416F2002C9E13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE622FC1E5416F2002C9E13 /* AppDelegate.swift */; };
 		5AE623021E5416F2002C9E13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE623001E5416F2002C9E13 /* Main.storyboard */; };
 		5AE623041E5416F2002C9E13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AE623031E5416F2002C9E13 /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5A9364821E5454DC007D8AC4 /* CourseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseVC.swift; sourceTree = "<group>"; };
+		5A9364841E54555E007D8AC4 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		5AE622F91E5416F2002C9E13 /* RememberLogos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RememberLogos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AE622FC1E5416F2002C9E13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AE623011E5416F2002C9E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				5AE623151E542AA0002C9E13 /* Message.swift */,
+				5A9364841E54555E007D8AC4 /* Course.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				5AE623191E542B5B002C9E13 /* RecitationVC.swift */,
+				5A9364821E5454DC007D8AC4 /* CourseVC.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -191,6 +197,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AE6231A1E542B5B002C9E13 /* RecitationVC.swift in Sources */,
+				5A9364851E54555E007D8AC4 /* Course.swift in Sources */,
+				5A9364831E5454DC007D8AC4 /* CourseVC.swift in Sources */,
 				5AE623161E542AA0002C9E13 /* Message.swift in Sources */,
 				5AE623181E542AC9002C9E13 /* MessageCell.swift in Sources */,
 				5AE622FD1E5416F2002C9E13 /* AppDelegate.swift in Sources */,

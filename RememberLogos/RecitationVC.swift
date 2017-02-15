@@ -20,9 +20,10 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var recitaionButton: UIButton!
     
     var messages = [Message]()
+    var course: Course!
     
     var currentMessage: Message!
-    var currentVerse: Int = 0
+    var currentVerse: Int!
     var messageIndex: String.Index!
     var updateTimer: Timer!
     
@@ -41,20 +42,16 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.voiceTextView.text = Constants.inactiveText
         
-        messages.append(Message(book: "시편", chapter: 23, verse: 1, text: "여호와는 나의 목자시니 내게 부족함이 없으리로다"))
-        messages.append(Message(book: "시편", chapter: 23, verse: 2, text: "그가 나를 푸른 풀밭에 누이시며 쉴 만한 물 가로 인도하시는도다"))
-        messages.append(Message(book: "시편", chapter: 23, verse: 3, text: "내 영혼을 소생시키시고 자기 이름을 위하여 의의 길로 인도하시는도다"))
-        messages.append(Message(book: "시편", chapter: 23, verse: 4, text: "내가 사망의 음침한 골짜기로 다닐지라도 해를 두려워하지 않을 것은 주께서 나와 함께 하심이라 주의 지팡이와 막대기가 나를 안위하시나이다"))
-        messages.append(Message(book: "시편", chapter: 23, verse: 5, text: "주께서 내 원수의 목전에서 내게 상을 차려 주시고 기름을 내 머리에 부으셨으니 내 잔이 넘치나이다"))
-        messages.append(Message(book: "시편", chapter: 23, verse: 6, text: "내 평생에 선하심과 인자하심이 반드시 나를 따르리니 내가 여호와의 집에 영원히 살리로다"))
+        self.navigationItem.title = course.name
+        self.courseRangeLbl.text = course.desc
         
-        
-        self.courseRangeLbl.text = "시편 23:1~16"
+        self.currentVerse = 5
+        self.currentMessage = course.messages[currentVerse]
         self.courseRangePb.setProgress(Float(currentVerse + 1) / Float(messages.count), animated: true)
         
-        self.currentMessage = messages[0]
         self.messageIndex = messages[self.currentVerse].text.startIndex
     }
     
@@ -189,13 +186,15 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             selectMessage(row: currentVerse)
             self.messageIndex = messages[currentVerse].text.startIndex
         } else {
-            let alertController = UIAlertController(title: "Would you like to exit in edit mode?", message: nil, preferredStyle: .alert)
+            let alertController = UIAlertController(title: "암송을 완료하였습니다. 다음 코스를 진행하시겠습니까?", message: nil, preferredStyle: .alert)
             
-            alertController.addAction(UIAlertAction(title: "Exit", style: .default) { (action: UIAlertAction!) in
-                self.dismiss(animated: true, completion: nil)
+            alertController.addAction(UIAlertAction(title: "아니요", style: .default) { (action: UIAlertAction!) in
+                if let navigationController = self.navigationController {
+                    navigationController.popViewController(animated: true)
+                }
                 }
             )
-            alertController.addAction(UIAlertAction(title: "No", style: .default) { (action: UIAlertAction!) in
+            alertController.addAction(UIAlertAction(title: "예", style: .default) { (action: UIAlertAction!) in
                 alertController.dismiss(animated: true, completion: nil)
                 }
             )
