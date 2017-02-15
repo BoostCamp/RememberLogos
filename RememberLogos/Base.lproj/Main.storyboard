@@ -1,14 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--RecitationVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RecitationVC" customModule="RememberLogos" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +22,94 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="-1" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HDr-SR-t78" userLabel="Message Table View">
+                                <rect key="frame" x="16" y="28" width="343" height="333.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" id="m5D-hn-xCm" customClass="MessageCell" customModule="RememberLogos" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m5D-hn-xCm" id="Zhq-TR-vlR">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZq-Mm-OEm" userLabel="Verse">
+                                                    <rect key="frame" x="8" y="0.0" width="20" height="14.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" placeholder="YES" id="0TP-Ey-vM9"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내가 사망의 음침한 골짜기로 다닐지라도 해를 두려워하지 않을 것은 주께서 나와 함께 하심이라 주의 지팡이와 막대기가 나를 안위하시나이다" lineBreakMode="wordWrap" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEx-ew-nYd" userLabel="Text">
+                                                    <rect key="frame" x="33" y="-2.5" width="310" height="86.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aEx-ew-nYd" firstAttribute="centerY" secondItem="Zhq-TR-vlR" secondAttribute="centerY" id="AJv-t9-xfH"/>
+                                                <constraint firstItem="aEx-ew-nYd" firstAttribute="leading" secondItem="YZq-Mm-OEm" secondAttribute="trailing" constant="5" id="GxX-T2-SEI"/>
+                                                <constraint firstItem="YZq-Mm-OEm" firstAttribute="leading" secondItem="Zhq-TR-vlR" secondAttribute="leadingMargin" id="STg-f2-K8V"/>
+                                                <constraint firstAttribute="trailing" secondItem="aEx-ew-nYd" secondAttribute="trailing" id="WZl-Ak-YQT"/>
+                                                <constraint firstItem="YZq-Mm-OEm" firstAttribute="top" secondItem="Zhq-TR-vlR" secondAttribute="top" id="c3G-dC-AUW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageLabel" destination="aEx-ew-nYd" id="QJZ-qE-fwl"/>
+                                            <outlet property="verseLabel" destination="YZq-Mm-OEm" id="iXg-cX-IWf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="o0z-2r-ghc"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="aGE-8h-ChJ"/>
+                                </connections>
+                            </tableView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="버튼을 누르면 음상인식이 시작됩니다." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bhE-t8-I0k" userLabel="VoiceText">
+                                <rect key="frame" x="16" y="396.5" width="343" height="142.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gq5-4m-aZH" userLabel="RecitationButton">
+                                <rect key="frame" x="127.5" y="547" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="8zM-U1-CFu"/>
+                                    <constraint firstAttribute="height" constant="120" id="WJS-oh-3xR"/>
+                                </constraints>
+                                <state key="normal" image="Record"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HDr-SR-t78" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="1Z3-7G-cdd"/>
+                            <constraint firstItem="HDr-SR-t78" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="1lc-VY-srZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bhE-t8-I0k" secondAttribute="trailing" id="2Jo-XH-caV"/>
+                            <constraint firstItem="gq5-4m-aZH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="D7p-le-gdn"/>
+                            <constraint firstItem="HDr-SR-t78" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="P26-7P-bqO"/>
+                            <constraint firstItem="HDr-SR-t78" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Uny-d5-grH"/>
+                            <constraint firstItem="bhE-t8-I0k" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ef5-Dz-s7b"/>
+                            <constraint firstItem="gq5-4m-aZH" firstAttribute="top" secondItem="bhE-t8-I0k" secondAttribute="bottom" constant="8" id="skg-cQ-4QH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gq5-4m-aZH" secondAttribute="bottom" id="tfc-jp-X0w"/>
+                            <constraint firstItem="bhE-t8-I0k" firstAttribute="top" secondItem="HDr-SR-t78" secondAttribute="bottom" constant="35" id="z47-eG-Fjl"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="messageTableView" destination="HDr-SR-t78" id="3u9-bX-FpL"/>
+                        <outlet property="recitaionButton" destination="gq5-4m-aZH" id="4qd-S2-sOk"/>
+                        <outlet property="voiceTextView" destination="bhE-t8-I0k" id="aIp-Og-gD7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Record" width="155" height="155"/>
+    </resources>
 </document>

@@ -8,20 +8,43 @@
 
 /* Begin PBXBuildFile section */
 		5AE622FD1E5416F2002C9E13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE622FC1E5416F2002C9E13 /* AppDelegate.swift */; };
-		5AE622FF1E5416F2002C9E13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE622FE1E5416F2002C9E13 /* ViewController.swift */; };
 		5AE623021E5416F2002C9E13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE623001E5416F2002C9E13 /* Main.storyboard */; };
 		5AE623041E5416F2002C9E13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AE623031E5416F2002C9E13 /* Assets.xcassets */; };
 		5AE623071E5416F2002C9E13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE623051E5416F2002C9E13 /* LaunchScreen.storyboard */; };
+		5AE6230F1E541902002C9E13 /* NaverSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE6230E1E541902002C9E13 /* NaverSpeech.framework */; };
+		5AE623101E541902002C9E13 /* NaverSpeech.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE6230E1E541902002C9E13 /* NaverSpeech.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5AE623161E542AA0002C9E13 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE623151E542AA0002C9E13 /* Message.swift */; };
+		5AE623181E542AC9002C9E13 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE623171E542AC9002C9E13 /* MessageCell.swift */; };
+		5AE6231A1E542B5B002C9E13 /* RecitationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE623191E542B5B002C9E13 /* RecitationVC.swift */; };
+		5AE6231C1E542BD3002C9E13 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE6231B1E542BD3002C9E13 /* Constants.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5AE623111E541902002C9E13 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5AE623101E541902002C9E13 /* NaverSpeech.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5AE622F91E5416F2002C9E13 /* RememberLogos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RememberLogos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AE622FC1E5416F2002C9E13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5AE622FE1E5416F2002C9E13 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5AE623011E5416F2002C9E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5AE623031E5416F2002C9E13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AE623061E5416F2002C9E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AE623081E5416F2002C9E13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AE6230E1E541902002C9E13 /* NaverSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NaverSpeech.framework; sourceTree = "<group>"; };
+		5AE623151E542AA0002C9E13 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		5AE623171E542AC9002C9E13 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		5AE623191E542B5B002C9E13 /* RecitationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecitationVC.swift; sourceTree = "<group>"; };
+		5AE6231B1E542BD3002C9E13 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AE6230F1E541902002C9E13 /* NaverSpeech.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +62,7 @@
 		5AE622F01E5416F2002C9E13 = {
 			isa = PBXGroup;
 			children = (
+				5AE6230E1E541902002C9E13 /* NaverSpeech.framework */,
 				5AE622FB1E5416F2002C9E13 /* RememberLogos */,
 				5AE622FA1E5416F2002C9E13 /* Products */,
 			);
@@ -54,14 +79,41 @@
 		5AE622FB1E5416F2002C9E13 /* RememberLogos */ = {
 			isa = PBXGroup;
 			children = (
+				5AE623141E542A5C002C9E13 /* controller */,
+				5AE623131E542A58002C9E13 /* model */,
+				5AE623121E542A51002C9E13 /* view */,
 				5AE622FC1E5416F2002C9E13 /* AppDelegate.swift */,
-				5AE622FE1E5416F2002C9E13 /* ViewController.swift */,
 				5AE623001E5416F2002C9E13 /* Main.storyboard */,
 				5AE623031E5416F2002C9E13 /* Assets.xcassets */,
 				5AE623051E5416F2002C9E13 /* LaunchScreen.storyboard */,
 				5AE623081E5416F2002C9E13 /* Info.plist */,
+				5AE6231B1E542BD3002C9E13 /* Constants.swift */,
 			);
 			path = RememberLogos;
+			sourceTree = "<group>";
+		};
+		5AE623121E542A51002C9E13 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				5AE623171E542AC9002C9E13 /* MessageCell.swift */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		5AE623131E542A58002C9E13 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				5AE623151E542AA0002C9E13 /* Message.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		5AE623141E542A5C002C9E13 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				5AE623191E542B5B002C9E13 /* RecitationVC.swift */,
+			);
+			name = controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +126,7 @@
 				5AE622F51E5416F2002C9E13 /* Sources */,
 				5AE622F61E5416F2002C9E13 /* Frameworks */,
 				5AE622F71E5416F2002C9E13 /* Resources */,
+				5AE623111E541902002C9E13 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -137,8 +190,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AE622FF1E5416F2002C9E13 /* ViewController.swift in Sources */,
+				5AE6231A1E542B5B002C9E13 /* RecitationVC.swift in Sources */,
+				5AE623161E542AA0002C9E13 /* Message.swift in Sources */,
+				5AE623181E542AC9002C9E13 /* MessageCell.swift in Sources */,
 				5AE622FD1E5416F2002C9E13 /* AppDelegate.swift in Sources */,
+				5AE6231C1E542BD3002C9E13 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +318,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7HL472C599;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = RememberLogos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leonKim.RememberLogos;
@@ -275,6 +335,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7HL472C599;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = RememberLogos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leonKim.RememberLogos;
@@ -302,6 +366,7 @@
 				5AE6230D1E5416F2002C9E13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
