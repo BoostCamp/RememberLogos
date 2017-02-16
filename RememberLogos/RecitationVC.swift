@@ -25,11 +25,13 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var currentMessage: Message!
     var currentVerse: Int!
     var messageIndex: String.Index!
-    var updateTimer: Timer!
+    var recitaionStartTimer: Timer!
     
     // Naver Speech
     private let ClientID = "710CwSWlxkzXAQdSa6CV"
     private let nskSpeechRecognizer: NSKRecognizer
+    
+    // controller init
     
     required init?(coder aDecoder: NSCoder) {
         // NSKRecognizer를 초기화 하는데 필요한 NSKRecognizerConfiguration을 생성
@@ -58,6 +60,8 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewDidAppear(_ animated: Bool) {
         selectMessage(row: currentVerse)
     }
+    
+    // delegate overriding - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
@@ -105,85 +109,50 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     public func recognizer(_ aRecognizer: NSKRecognizer!, didReceivePartialResult aResult: String!) {
 
         if (privResult == nil) || (aResult != privResult) {
-//            print("Partial result: \(aResult)")
+
             self.voiceTextView.text = aResult
+//            print("Partial result: \(aResult)")
 //            compareMessage(aResult: aResult)
         }
         privResult = aResult
+        
     }
     
     public func recognizerDidEnterReady(_ aRecognizer: NSKRecognizer!) {
         print("Event occurred: Ready")
-        self.updateTimer = Timer(timeInterval: 1, target: self, selector: #selector(RecitationVC.onReady), userInfo: nil, repeats: false)
-        RunLoop.main.add(self.updateTimer!, forMode: RunLoopMode.defaultRunLoopMode)
+        self.recitaionStartTimer = Timer(timeInterval: 1, target: self, selector: #selector(RecitationVC.onReady), userInfo: nil, repeats: false)
+        RunLoop.main.add(self.recitaionStartTimer!, forMode: RunLoopMode.defaultRunLoopMode)
     }
+    
     public func recognizerDidDetectEndPoint(_ aRecognizer: NSKRecognizer!) {
         print("Event occurred: End point detected")
     }
+    
     public func recognizerDidEnterInactive(_ aRecognizer: NSKRecognizer!) {
         print("Event occurred: Inactive")
         self.voiceTextView.text = Constants.inactiveText
     }
     
-    // viewCotroller func
-    func compareMessage(aResult: String!) {
-        if let selectedRow = messageTableView.indexPathForSelectedRow,
-            let cell = messageTableView.cellForRow(at: selectedRow) as? MessageCell,
-            let label = cell.messageLabel,
-            let message = label.text,
-            let attributedText = label.attributedText {
-            
-            var isChanged = false, isVerseEnd = false
-            
-            for ch in aResult.characters {
-//                print("messageIndex:\(messageIndex), message.endIndex: \(message.endIndex)")
-                if(ch == message[messageIndex]) {
-//                    print("ch: \(ch)")
-                    isChanged = true
-                    messageIndex = message.index(after: messageIndex)
-                    
-                    if messageIndex >= message.endIndex {
-                        isVerseEnd = true
-                        break
-                    }
-                    
-                }
-            }
-            
-            if isChanged {
-                changeMessageLabel(message, attributedText, label)
-            }
-            
-            if isVerseEnd {
-                changeVerse()
-            }
+    // recognizerStartTimer func
+    
+    func onReady() {
+        self.voiceTextView.text = Constants.defaultVoiceText
+        
+        if let updateTimer = recitaionStartTimer {
+            updateTimer.invalidate()
         }
     }
     
-    private func changeMessageLabel(_ message: String,_ attributedText: NSAttributedString,_ detailTextLabel: UILabel) {
-        
-        let discoveredRange = NSMakeRange(message.distance(from: message.startIndex, to: message.startIndex),
-                                          message.distance(from: message.startIndex, to: messageIndex))
-        
-        
-//        let shadowRange = NSMakeRange(message.distance(from: message.startIndex, to: messageIndex),
-//                                      message.distance(from: messageIndex, to: message.endIndex))
-        
-        
-        let mutableAttrStr = NSMutableAttributedString(attributedString: attributedText)
-        
-        mutableAttrStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: discoveredRange)
-//        mutableAttrStr.removeAttribute(NSShadowAttributeName, range: discoveredRange)
-        
-        
-//        mutableAttrStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.clear, range: shadowRange)
-//        
-//        let shadow = NSShadow()
-//        shadow.shadowColor = UIColor.blue
-//        shadow.shadowBlurRadius = 10.0
-//        mutableAttrStr.addAttribute(NSShadowAttributeName, value: shadow, range: shadowRange)
-        
-        detailTextLabel.attributedText = mutableAttrStr
+    // controller private func
+    
+    private func compareMessage(aResult: String!) {
+        if let selectedRow = messageTableView.indexPathForSelectedRow,
+            let cell = messageTableView.cellForRow(at: selectedRow) as? MessageCell {
+            
+            if cell.compareMessage(aResult: aResult) {
+                changeVerse()
+            }
+        }
     }
     
     private func changeVerse() {
@@ -195,68 +164,42 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             selectMessage(row: currentVerse)
             self.messageIndex = messages[currentVerse].text.startIndex
         } else {
-            let alertController = UIAlertController(title: "암송을 완료하였습니다. 다음 코스를 진행하시겠습니까?", message: nil, preferredStyle: .alert)
-            
-            alertController.addAction(UIAlertAction(title: "아니요", style: .default) { (action: UIAlertAction!) in
-                if let navigationController = self.navigationController {
-                    navigationController.popViewController(animated: true)
-                }
-                }
-            )
-            alertController.addAction(UIAlertAction(title: "예", style: .default) { (action: UIAlertAction!) in
-                alertController.dismiss(animated: true, completion: nil)
-                }
-            )
-            
-            present(alertController, animated: true, completion: nil)
+            showComplateCourse()
         }
-    }
-    
-    
-    func onReady() {
-        self.voiceTextView.text = Constants.defaultVoiceText
         
-        if let updateTimer = updateTimer {
-            updateTimer.invalidate()
-        }
     }
     
-    func selectMessage(row : Int) {
+    private func showComplateCourse() {
+    
+        let alertController = UIAlertController(title: "암송을 완료하였습니다. 다음 코스를 진행하시겠습니까?", message: nil, preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "아니요", style: .default) { (action: UIAlertAction!) in
+            
+            if let navigationController = self.navigationController {
+                    navigationController.popViewController(animated: true)
+                
+            }
+            }
+        )
+        alertController.addAction(UIAlertAction(title: "예", style: .default) { (action: UIAlertAction!) in
+                alertController.dismiss(animated: true, completion: nil)
+            }
+        )
+        
+        present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    private func selectMessage(row : Int) {
         let numberOfRows = messageTableView.numberOfRows(inSection: 0)
         guard numberOfRows > row else {
             return
         }
         messageTableView.selectRow(at: IndexPath(row: row, section:0), animated: true, scrollPosition: UITableViewScrollPosition.middle)
         self.courseRangePb.setProgress(Float(currentVerse) / Float(messages.count), animated: true)
-//        shadowSelectedMessage()
     }
     
-    func shadowSelectedMessage() {
-        
-        if let selectedRow = messageTableView.indexPathForSelectedRow,
-            let cell = messageTableView.cellForRow(at: selectedRow) as? MessageCell,
-            let label = cell.messageLabel,
-            let attributedText = label.attributedText {
-            
-            let message = attributedText.string
-            let shadowRange = NSMakeRange(message.distance(from: message.startIndex, to: message.startIndex),
-                                          message.distance(from: message.startIndex, to: message.endIndex))
-            
-            
-            let mutableAttrStr = NSMutableAttributedString(attributedString: attributedText)
-            
-            mutableAttrStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.clear, range: shadowRange)
-            
-            let shadow = NSShadow()
-            shadow.shadowColor = UIColor.blue
-            shadow.shadowBlurRadius = 10.0
-            mutableAttrStr.addAttribute(NSShadowAttributeName, value: shadow, range: shadowRange)
-            
-            label.attributedText = mutableAttrStr
-        }
-    }
-    
-    func startRecognizer() {
+    private func startRecognizer() {
         
         let audioSession = AVAudioSession.sharedInstance()
         do {
@@ -272,7 +215,7 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
     }
     
-    func stopRecognizer() {
+    private func stopRecognizer() {
         
         nskSpeechRecognizer.stop()
         
