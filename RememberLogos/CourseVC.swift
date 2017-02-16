@@ -35,6 +35,10 @@ class CourseVC: UITableViewController {
         messages.append(Message(book: "신명기", chapter: 6, verse: 8, text: "너는 또 그것을 네 손목에 매어 기호를 삼으며 네 미간에 붙여 표로 삼고"))
         messages.append(Message(book: "신명기", chapter: 6, verse: 9, text: "또 네 집 문설주와 바깥 문에 기록할지니라"))
         courses.append(Course(name: "초급 2 단계 - 이스라엘아 들으라", desc: "신명기 6:4~9", messages: messages))
+        
+        messages = [Message]()
+        messages.append(Message(book: "테스트", chapter: 6, verse: 1, text: "안녕하세요."))
+        courses.append(Course(name: "테스트 용 - 헬로우 암송", desc: "안녕하세요", messages: messages))
     }
     
     // delegate overriding - UITableViewDataSource

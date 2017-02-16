@@ -24,7 +24,6 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     var currentMessage: Message!
     var currentVerse: Int!
-    var messageIndex: String.Index!
     var recitaionStartTimer: Timer!
     
     // Naver Speech
@@ -53,8 +52,6 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.currentVerse = 0
         self.currentMessage = course.messages[currentVerse]
         self.courseRangePb.setProgress(Float(currentVerse) / Float(messages.count), animated: true)
-        
-        self.messageIndex = messages[self.currentVerse].text.startIndex
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -162,7 +159,6 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         if currentVerse < messages.count - 1 {
             currentVerse = currentVerse + 1
             selectMessage(row: currentVerse)
-            self.messageIndex = messages[currentVerse].text.startIndex
         } else {
             showComplateCourse()
         }

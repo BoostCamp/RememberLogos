@@ -14,6 +14,7 @@ class MessageCell: UITableViewCell {
     @IBOutlet weak var messageLabel: UILabel!
     
     var currentIndex: String.Index!
+    private var _message:Message!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,24 +27,29 @@ class MessageCell: UITableViewCell {
         verseLabel.text = "\(message.verse)"
         messageLabel.text = message.text
         currentIndex = message.text.startIndex
+        _message = message
     }
     
     public func compareMessage(aResult: String!) -> Bool {
         var isVerseEnd = false
         
-        if let label = messageLabel, let message = label.text, var currentIndex = self.currentIndex {
+        if let message = _message, var currentIndex = self.currentIndex {
             
             var isChanged = false
+            let text = message.text
             
             for ch in aResult.characters {
-                //print("voice: \(ch), message: \(message[messageIndex])")
-                //                print("messageIndex:\(messageIndex), message.endIndex: \(message.endIndex)")
-                if(ch == message[currentIndex]) {
+                
+                // for Debug
+                //print("voice: \(ch), message: \(message[currentIndex])")
+                //print("messageIndex:\(currentIndex), message.endIndex: \(message.endIndex)")
+                
+                if(ch == text[currentIndex]) {
                     
                     isChanged = true
-                    currentIndex = message.index(after: currentIndex)
+                    currentIndex = text.index(after: currentIndex)
                     
-                    if currentIndex >= message.endIndex {
+                    if currentIndex == text.index( before:text.endIndex) {
                         isVerseEnd = true
                         break
                     }
@@ -67,7 +73,7 @@ class MessageCell: UITableViewCell {
                                               message.distance(from: message.startIndex, to: currentIndex))
             
             let mutableAttrStr = NSMutableAttributedString(attributedString: attributedText)
-            mutableAttrStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: discoveredRange)
+            mutableAttrStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.purple, range: discoveredRange)
             messageLabel.attributedText = mutableAttrStr
             
         }
