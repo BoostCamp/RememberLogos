@@ -15,11 +15,20 @@ class Message {
     private var _verse: Int!
     private var _text: String!
     
+    init() { }
+    
     init(book: String, chapter: Int, verse: Int, text: String) {
         _book = book
         _chapter = chapter
         _verse = verse
         _text = text
+    }
+    
+    init(message:[String: AnyObject]) {
+        _book = message["book"] as? String
+        _chapter = message["chapter"] as? Int
+        _verse = message["verse"] as? Int
+        _text = message["text"] as? String
     }
     
     var book: String {

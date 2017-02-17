@@ -19,6 +19,7 @@
 		5AE623181E542AC9002C9E13 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE623171E542AC9002C9E13 /* MessageCell.swift */; };
 		5AE6231A1E542B5B002C9E13 /* RecitationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE623191E542B5B002C9E13 /* RecitationVC.swift */; };
 		5AE6231C1E542BD3002C9E13 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE6231B1E542BD3002C9E13 /* Constants.swift */; };
+		5AEAC5051E56BD320020BD52 /* courses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AEAC5041E56BD320020BD52 /* courses.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +50,7 @@
 		5AE623171E542AC9002C9E13 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		5AE623191E542B5B002C9E13 /* RecitationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecitationVC.swift; sourceTree = "<group>"; };
 		5AE6231B1E542BD3002C9E13 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5AEAC5041E56BD320020BD52 /* courses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = courses.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		5AE622FB1E5416F2002C9E13 /* RememberLogos */ = {
 			isa = PBXGroup;
 			children = (
+				5AEAC5031E56BD170020BD52 /* resource */,
 				5AE623141E542A5C002C9E13 /* controller */,
 				5AE623131E542A58002C9E13 /* model */,
 				5AE623121E542A51002C9E13 /* view */,
@@ -120,6 +123,14 @@
 				5A9364821E5454DC007D8AC4 /* CourseVC.swift */,
 			);
 			name = controller;
+			sourceTree = "<group>";
+		};
+		5AEAC5031E56BD170020BD52 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				5AEAC5041E56BD320020BD52 /* courses.plist */,
+			);
+			name = resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +197,7 @@
 				5AE623071E5416F2002C9E13 /* LaunchScreen.storyboard in Resources */,
 				5AE623041E5416F2002C9E13 /* Assets.xcassets in Resources */,
 				5AE623021E5416F2002C9E13 /* Main.storyboard in Resources */,
+				5AEAC5051E56BD320020BD52 /* courses.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

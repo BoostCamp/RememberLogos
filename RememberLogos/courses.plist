@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>desc</key>
+		<string>시편 23:1~6</string>
+		<key>name</key>
+		<string>고급 1 단계 - 나의 목자</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>시편</string>
+				<key>verse</key>
+				<integer>23</integer>
+				<key>chapter</key>
+				<integer>1</integer>
+				<key>text</key>
+				<string>여호와는 나의 목자시니 내게 부족함이 없으리로다</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>시편</string>
+				<key>verse</key>
+				<integer>23</integer>
+				<key>chapter</key>
+				<integer>2</integer>
+				<key>text</key>
+				<string>그가 나를 푸른 풀밭에 누이시며 쉴 만한 물 가로 인도하시는도다</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>시편</string>
+				<key>verse</key>
+				<integer>23</integer>
+				<key>chapter</key>
+				<integer>3</integer>
+				<key>text</key>
+				<string>내 영혼을 소생시키시고 자기 이름을 위하여 의의 길로 인도하시는도다</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>시편</string>
+				<key>verse</key>
+				<integer>23</integer>
+				<key>chapter</key>
+				<integer>4</integer>
+				<key>text</key>
+				<string>내가 사망의 음침한 골짜기로 다닐지라도 해를 두려워하지 않을 것은 주께서 나와 함께 하심이라 주의 지팡이와 막대기가 나를 안위하시나이다</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>시편</string>
+				<key>verse</key>
+				<integer>23</integer>
+				<key>chapter</key>
+				<integer>5</integer>
+				<key>text</key>
+				<string>주께서 내 원수의 목전에서 내게 상을 차려 주시고 기름을 내 머리에 부으셨으니 내 잔이 넘치나이다</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>시편</string>
+				<key>verse</key>
+				<integer>23</integer>
+				<key>chapter</key>
+				<integer>6</integer>
+				<key>text</key>
+				<string>내 평생에 선하심과 인자하심이 반드시 나를 따르리니 내가 여호와의 집에 영원히 살리로다</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>신명기 6:4~9</string>
+		<key>name</key>
+		<string>초급 2 단계 - 이스라엘아 들으라</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>신명기</string>
+				<key>verse</key>
+				<integer>4</integer>
+				<key>chapter</key>
+				<integer>6</integer>
+				<key>text</key>
+				<string>이스라엘아 들으라 우리 하나님 여호와는 오직 유일한 여호와이시니</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>신명기</string>
+				<key>verse</key>
+				<integer>5</integer>
+				<key>chapter</key>
+				<integer>6</integer>
+				<key>text</key>
+				<string>너는 마음을 다하고 뜻을 다하고 힘을 다하여 네 하나님 여호와를 사랑하라</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>신명기</string>
+				<key>verse</key>
+				<integer>6</integer>
+				<key>chapter</key>
+				<integer>6</integer>
+				<key>text</key>
+				<string>오늘 내가 네게 명하는 이 말씀을 너는 마음에 새기고</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>신명기</string>
+				<key>verse</key>
+				<integer>7</integer>
+				<key>chapter</key>
+				<integer>6</integer>
+				<key>text</key>
+				<string>네 자녀에게 부지런히 가르치며 집에 앉았을 때에든지 길을 갈 때에든지 누워 있을 때에든지 일어날 때에든지 이 말씀을 강론할 것이며</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>신명기</string>
+				<key>verse</key>
+				<integer>8</integer>
+				<key>chapter</key>
+				<integer>6</integer>
+				<key>text</key>
+				<string>너는 또 그것을 네 손목에 매어 기호를 삼으며 네 미간에 붙여 표로 삼고</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>신명기</string>
+				<key>verse</key>
+				<integer>9</integer>
+				<key>chapter</key>
+				<integer>6</integer>
+				<key>text</key>
+				<string>또 네 집 문설주와 바깥 문에 기록할지니라</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>안녕하세요</string>
+		<key>name</key>
+		<string>테스트 용 - 헬로우 암송</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>테스트</string>
+				<key>verse</key>
+				<integer>1</integer>
+				<key>chapter</key>
+				<integer>1</integer>
+				<key>text</key>
+				<string>안녕하세요</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>안녕하세요2</string>
+		<key>name</key>
+		<string>테스트 용 - 헬로우 암송2</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>테스트</string>
+				<key>verse</key>
+				<integer>1</integer>
+				<key>chapter</key>
+				<integer>1</integer>
+				<key>text</key>
+				<string>안녕하세요</string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>

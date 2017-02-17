@@ -13,10 +13,28 @@ class Course {
     private var _desc: String!
     private var _messages: [Message] = [Message]()
     
+    init() { }
+    
     init(name: String, desc: String, messages : [Message]) {
         _name = name
         _desc = desc
         _messages = messages
+    }
+    
+    init(course:[String: AnyObject]) {
+        _name = course["name"] as? String
+        _desc = course["desc"] as? String
+        if let messages = course["messages"] as? [AnyObject] {
+            _messages = messages.map({ (item : AnyObject) -> Message in
+                if let message = item as? [String: AnyObject] {
+                    return Message(message: message)
+                } else {
+                    print("잘못된 형식의 message data : \(item)")
+                    return Message()
+                }
+                
+            })
+        }
     }
     
     var name: String {

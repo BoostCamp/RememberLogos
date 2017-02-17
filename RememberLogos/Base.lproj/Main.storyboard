@@ -198,4 +198,5 @@
     <resources>
         <image name="Record" width="155" height="155"/>
     </resources>
+    <color key="tintColor" red="1" green="0.92765429909507402" blue="0.29730619597372776" alpha="0.89688570205479456" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
