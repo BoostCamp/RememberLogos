@@ -56,6 +56,8 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     override func viewDidAppear(_ animated: Bool) {
         selectMessage(row: currentVerse)
+        // FOR TEST
+        showComplateCourse()
     }
     
     // delegate overriding - UITableViewDelegate
@@ -167,7 +169,12 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     private func showComplateCourse() {
     
-        let alertController = UIAlertController(title: "암송을 완료하였습니다. 다음 코스를 진행하시겠습니까?", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "암송을 완료하였습니다. 다음 코스를 진행하시겠습니까?", message: nil, preferredStyle: .actionSheet)
+        
+        alertController.addAction(UIAlertAction(title: "예", style: .default) { (action: UIAlertAction!) in
+            self.nextCourse()
+            }
+        )
         
         alertController.addAction(UIAlertAction(title: "아니요", style: .default) { (action: UIAlertAction!) in
             
@@ -177,13 +184,20 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             }
             }
         )
-        alertController.addAction(UIAlertAction(title: "예", style: .default) { (action: UIAlertAction!) in
-                alertController.dismiss(animated: true, completion: nil)
-            }
-        )
+        
         
         present(alertController, animated: true, completion: nil)
         
+    }
+    
+    private func nextCourse() {
+        if let navigationController = self.navigationController {
+            navigationController.popViewController(animated: false)
+            if let courseVC = navigationController.topViewController as? CourseVC {
+                courseVC.performSegue(withIdentifier: "nextRecitation", sender: nil)
+            }
+            
+        }
     }
     
     private func selectMessage(row : Int) {

@@ -13,6 +13,7 @@ let coursePlistName = "courses"
 class CourseVC: UITableViewController {
     
     var courses = [Course]()
+    var currentCourse:Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,8 +62,23 @@ class CourseVC: UITableViewController {
 
         if (segue.identifier == "showRecitation") {
             if let recitationVC = segue.destination as? RecitationVC, let indexPath = self.tableView.indexPathForSelectedRow  {
+                
+                currentCourse = indexPath.row
+                
                 recitationVC.messages = courses[indexPath.row].messages
                 recitationVC.course = courses[indexPath.row]
+                
+            }
+        }
+        if (segue.identifier == "nextRecitation") {
+            if let recitationVC = segue.destination as? RecitationVC {
+                
+                currentCourse += 1
+                
+                if courses.count > currentCourse {
+                    recitationVC.messages = courses[currentCourse].messages
+                    recitationVC.course = courses[currentCourse]
+                }
             }
         }
     }
