@@ -8,10 +8,15 @@
 
 import UIKit
 
+
+let globalTintColor = UIColor(red: 34.0/255.0, green: 208.0/255.0, blue: 136.0/255.0, alpha: 0.5)
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    let tintColor = UIColor(red: 34.0/255.0, green: 208.0/255.0, blue: 136.0/255.0, alpha: 0.5)
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D199216414AF50F5810A678 /* Pods_RememberLogos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB145F6C3874F76FAF304FED /* Pods_RememberLogos.framework */; };
 		5A9364831E5454DC007D8AC4 /* CourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9364821E5454DC007D8AC4 /* CourseVC.swift */; };
 		5A9364851E54555E007D8AC4 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9364841E54555E007D8AC4 /* Course.swift */; };
 		5AE622FD1E5416F2002C9E13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE622FC1E5416F2002C9E13 /* AppDelegate.swift */; };
@@ -51,6 +52,9 @@
 		5AE623191E542B5B002C9E13 /* RecitationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecitationVC.swift; sourceTree = "<group>"; };
 		5AE6231B1E542BD3002C9E13 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5AEAC5041E56BD320020BD52 /* courses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = courses.plist; sourceTree = "<group>"; };
+		91666ED7BD593CDE88EC5F09 /* Pods-RememberLogos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RememberLogos.release.xcconfig"; path = "Pods/Target Support Files/Pods-RememberLogos/Pods-RememberLogos.release.xcconfig"; sourceTree = "<group>"; };
+		9498609D2AFC272144397A11 /* Pods-RememberLogos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RememberLogos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RememberLogos/Pods-RememberLogos.debug.xcconfig"; sourceTree = "<group>"; };
+		DB145F6C3874F76FAF304FED /* Pods_RememberLogos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RememberLogos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,18 +63,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AE6230F1E541902002C9E13 /* NaverSpeech.framework in Frameworks */,
+				2D199216414AF50F5810A678 /* Pods_RememberLogos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08E8EAE94546143F0BF588F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB145F6C3874F76FAF304FED /* Pods_RememberLogos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5AE622F01E5416F2002C9E13 = {
 			isa = PBXGroup;
 			children = (
 				5AE6230E1E541902002C9E13 /* NaverSpeech.framework */,
 				5AE622FB1E5416F2002C9E13 /* RememberLogos */,
 				5AE622FA1E5416F2002C9E13 /* Products */,
+				61FB0AE0077909B502F0E71F /* Pods */,
+				08E8EAE94546143F0BF588F0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,6 +148,15 @@
 			name = resource;
 			sourceTree = "<group>";
 		};
+		61FB0AE0077909B502F0E71F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9498609D2AFC272144397A11 /* Pods-RememberLogos.debug.xcconfig */,
+				91666ED7BD593CDE88EC5F09 /* Pods-RememberLogos.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,10 +164,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5AE6230B1E5416F2002C9E13 /* Build configuration list for PBXNativeTarget "RememberLogos" */;
 			buildPhases = (
+				BCEDC9BEE0D5A4BD17718C0A /* [CP] Check Pods Manifest.lock */,
 				5AE622F51E5416F2002C9E13 /* Sources */,
 				5AE622F61E5416F2002C9E13 /* Frameworks */,
 				5AE622F71E5416F2002C9E13 /* Resources */,
 				5AE623111E541902002C9E13 /* Embed Frameworks */,
+				AA8C5C2F4BB3772F00D4D4A8 /* [CP] Embed Pods Frameworks */,
+				37B3C1170F873252C19F0DFB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -202,6 +229,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		37B3C1170F873252C19F0DFB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RememberLogos/Pods-RememberLogos-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA8C5C2F4BB3772F00D4D4A8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RememberLogos/Pods-RememberLogos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCEDC9BEE0D5A4BD17718C0A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5AE622F51E5416F2002C9E13 /* Sources */ = {
@@ -335,6 +410,7 @@
 		};
 		5AE6230C1E5416F2002C9E13 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9498609D2AFC272144397A11 /* Pods-RememberLogos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7HL472C599;
@@ -352,6 +428,7 @@
 		};
 		5AE6230D1E5416F2002C9E13 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91666ED7BD593CDE88EC5F09 /* Pods-RememberLogos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7HL472C599;

@@ -57,7 +57,7 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewDidAppear(_ animated: Bool) {
         selectMessage(row: currentVerse)
         // FOR TEST
-        showComplateCourse()
+//        showComplateCourse()
     }
     
     // delegate overriding - UITableViewDelegate
