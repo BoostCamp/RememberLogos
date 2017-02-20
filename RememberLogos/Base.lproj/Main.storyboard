@@ -55,7 +55,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Courses" id="MQp-KB-DLk"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="ttY-uj-yGv"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="nextRecitation" animates="NO" id="ttY-uj-yGv"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcL-jg-ooX" userLabel="First Responder" sceneMemberID="firstResponder"/>
