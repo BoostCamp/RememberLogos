@@ -15,10 +15,11 @@ class MessageCell: UITableViewCell {
     @IBOutlet weak var verseLabel: UILabel!
     @IBOutlet weak var messageLabel: TTTAttributedLabel!
     
-    private let messageColor = UIColor(red: 7.0/255.0, green: 171.0/255.0, blue: 195.0/255.0, alpha: 1)
-    
-    var currentIndex: String.Index!
+    private var hiddenRanges:[NSRange] = [NSRange]()
+    private var currentIndex: String.Index!
     private var _message:Message!
+    
+    private let messageColor = UIColor(red: 7.0/255.0, green: 171.0/255.0, blue: 195.0/255.0, alpha: 1)
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,13 +43,10 @@ class MessageCell: UITableViewCell {
     
     private func blankText(_ text: String) {
         
-        
-        var ranges = [Range<String.Index>]()
         text.enumerateSubstrings(in: (text.startIndex..<text.endIndex), options: String.EnumerationOptions.byWords) { (substring: String?, substringRange  : Range<String.Index>, enclosingRange: Range<String.Index>, false) in
-            if let substring = substring {
-                if !substring.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty {
-                    ranges.append(enclosingRange)
-                }
+            if let substring = substring, !(substring.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty) {
+                    
+                self.hiddenRanges.append(NSMakeRange(text.distance(from: text.startIndex, to: enclosingRange.lowerBound), text.distance(from: enclosingRange.lowerBound, to: enclosingRange.upperBound)))
                 
             }
         }
@@ -57,37 +55,43 @@ class MessageCell: UITableViewCell {
             let mutableAttrStr = NSMutableAttributedString(attributedString: attributedText)
             
             let style = NSMutableParagraphStyle()
-            style.lineHeightMultiple = 1.5
+            style.lineHeightMultiple = 1.2
             
             mutableAttrStr.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, text.characters.count))
             
-            for range in ranges {
-                let hiddenRange = NSMakeRange(text.distance(from: text.startIndex, to: range.lowerBound), text.distance(from: range.lowerBound, to: range.upperBound))
-                
-                
-                mutableAttrStr.addAttribute(kTTTBackgroundFillColorAttributeName, value: globalTintColor, range: hiddenRange)
-                mutableAttrStr.addAttribute(kTTTBackgroundCornerRadiusAttributeName, value: 5.0, range: hiddenRange)
+            for range in hiddenRanges {
+                mutableAttrStr.addAttribute(kTTTBackgroundFillColorAttributeName, value: globalTintColor, range: range)
+                mutableAttrStr.addAttribute(kTTTBackgroundCornerRadiusAttributeName, value: 5.0, range: range)
             }
             
             messageLabel.attributedText = mutableAttrStr
         }
     }
     
-    public func compareMessage(aResult: String!) -> Bool {
+    public func compareMessage(aResult: String!) -> [String: Any] {
         var isVerseEnd = false
+        
+        var correspondIndexes = [NSRange]()
         
         if let message = _message, var currentIndex = self.currentIndex {
             
             var isChanged = false
             let text = message.text
             
-            for ch in aResult.characters {
+            for (index, ch) in aResult.characters.enumerated() {
                 
                 // for Debug
                 //print("voice: \(ch), message: \(message[currentIndex])")
                 //print("messageIndex:\(currentIndex), message.endIndex: \(message.endIndex)")
                 
                 if(ch == text[currentIndex]) {
+                    
+                    if let lastRange = correspondIndexes.last, NSMaxRange(lastRange) == (index - 1){
+                        let _ = correspondIndexes.popLast()
+                        correspondIndexes.append(NSMakeRange(lastRange.location, lastRange.length + 1))
+                    } else {
+                        correspondIndexes.append(NSMakeRange(index, 1))
+                    }
                     
                     isChanged = true
                     currentIndex = text.index(after: currentIndex)
@@ -105,10 +109,10 @@ class MessageCell: UITableViewCell {
             }
         }
         
-        return isVerseEnd
+        return ["ranges": correspondIndexes, "isVerseEnd": isVerseEnd]
     }
     
-    public func changeMessageLabel() {
+    private func changeMessageLabel() {
         if let message = messageLabel.text, let attributedText = messageLabel.attributedText {
             
             let discoveredRange = NSMakeRange(message.distance(from: message.startIndex, to: message.startIndex),

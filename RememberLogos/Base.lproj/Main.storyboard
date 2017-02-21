@@ -78,275 +78,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="-1" rowHeight="130" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HDr-SR-t78" userLabel="Message Table View">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="-1" rowHeight="180" sectionHeaderHeight="30" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="HDr-SR-t78" userLabel="Message Table View">
                                 <rect key="frame" x="16" y="64" width="343" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="H1e-u1-POF" userLabel="navigationView">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시편 23:1~16" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eb6-hI-LNZ" userLabel="CourseRange">
+                                            <rect key="frame" x="124.5" y="0.0" width="94" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.01089341752" green="0.79868286850000003" blue="0.7309702039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iaU-t9-8ng" userLabel="CourseRangePb">
+                                            <rect key="frame" x="0.0" y="31" width="343" height="2"/>
+                                            <color key="tintColor" red="0.01089341752" green="0.79868286850000003" blue="0.7309702039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="progressTintColor" red="0.31089335680007935" green="0.81252914667129517" blue="0.84367173910140991" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="trackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </progressView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="eb6-hI-LNZ" firstAttribute="centerX" secondItem="H1e-u1-POF" secondAttribute="centerX" id="Ob7-Fn-VFm"/>
+                                        <constraint firstAttribute="trailing" secondItem="iaU-t9-8ng" secondAttribute="trailing" id="aIW-4M-8bG"/>
+                                        <constraint firstAttribute="bottom" secondItem="iaU-t9-8ng" secondAttribute="bottom" constant="10" id="dS5-Oo-sr1"/>
+                                        <constraint firstItem="iaU-t9-8ng" firstAttribute="top" secondItem="eb6-hI-LNZ" secondAttribute="bottom" constant="10" id="jFq-v6-srr"/>
+                                        <constraint firstItem="iaU-t9-8ng" firstAttribute="leading" secondItem="H1e-u1-POF" secondAttribute="leading" id="vKb-Mm-7by"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MessageCell" rowHeight="150" id="m5D-hn-xCm" customClass="MessageCell" customModule="RememberLogos" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="150"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MessageCell" id="m5D-hn-xCm" customClass="MessageCell" customModule="RememberLogos" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="73" width="343" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m5D-hn-xCm" id="Zhq-TR-vlR">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="180"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZq-Mm-OEm" userLabel="Verse">
-                                                    <rect key="frame" x="8" y="0.0" width="20" height="14.5"/>
+                                                    <rect key="frame" x="8" y="0.0" width="20" height="8"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" placeholder="YES" id="0TP-Ey-vM9"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEx-ew-nYd" userLabel="Text" customClass="TTTAttributedLabel">
-                                                    <rect key="frame" x="8" y="5" width="335" height="141"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="내가">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="25" name=".AppleSDGothicNeoI-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content=" ">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="25"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="사망의">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="25" name=".AppleSDGothicNeoI-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content=" ">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="25"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="음침한">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="25" name=".AppleSDGothicNeoI-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content=" ">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="25"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="골짜기로">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="25" name=".AppleSDGothicNeoI-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content=" ">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="25"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="다닐지라도">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="25" name=".AppleSDGothicNeoI-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content=" ">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="25"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="해를">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="25" name=".AppleSDGothicNeoI-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content=" ">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="25"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="두려워하지">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="25" name=".AppleSDGothicNeoI-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content=" ">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="25"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="않을">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="25" name=".AppleSDGothicNeoI-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content=" ">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="25"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="것은">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="25" name=".AppleSDGothicNeoI-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content=" ">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="25"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="주께서">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="25" name=".AppleSDGothicNeoI-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content=" ">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="25"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="나와">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="25" name=".AppleSDGothicNeoI-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content=" ">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="25"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="함께">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="25" name=".AppleSDGothicNeoI-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content=" ">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="25"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="하심이라">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="25" name=".AppleSDGothicNeoI-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content=" ">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="25"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="주의">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="25" name=".AppleSDGothicNeoI-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content=" ">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="25"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="지팡이와">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="25" name=".AppleSDGothicNeoI-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content=" ">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="25"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="막대기가">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="25" name=".AppleSDGothicNeoI-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content=" ">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="25"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="나를">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="25" name=".AppleSDGothicNeoI-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content=" ">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="25"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="안위하시나이다">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.45365661201138185" green="0.45365661201138185" blue="0.45365661201138185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="25" name=".AppleSDGothicNeoI-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내가 사망의 음침한 골짜기로 다닐지라도 해를 두려워하지 않을 것은 주께서 나와 함께 하심이라 주의 지팡이와 막대기가 나를 안위하시나이다" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEx-ew-nYd" userLabel="Text" customClass="TTTAttributedLabel">
+                                                    <rect key="frame" x="8" y="13" width="335" height="154"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -356,7 +137,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="aEx-ew-nYd" secondAttribute="trailing" id="WZl-Ak-YQT"/>
                                                 <constraint firstItem="aEx-ew-nYd" firstAttribute="leading" secondItem="Zhq-TR-vlR" secondAttribute="leadingMargin" id="YdR-8E-Daj"/>
                                                 <constraint firstItem="YZq-Mm-OEm" firstAttribute="top" secondItem="Zhq-TR-vlR" secondAttribute="top" id="c3G-dC-AUW"/>
-                                                <constraint firstItem="aEx-ew-nYd" firstAttribute="top" secondItem="YZq-Mm-OEm" secondAttribute="top" constant="5" id="zGH-oD-jFu"/>
+                                                <constraint firstItem="aEx-ew-nYd" firstAttribute="top" secondItem="YZq-Mm-OEm" secondAttribute="bottom" constant="5" id="zGH-oD-jFu"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -376,7 +157,8 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="버튼을 누르면 음성인식이 시작됩니다." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bhE-t8-I0k" userLabel="VoiceText">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="74.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gq5-4m-aZH" userLabel="RecitationButton">
@@ -420,32 +202,6 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="QQx-WU-PLe">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
-                        <view key="titleView" contentMode="scaleToFill" id="H1e-u1-POF" userLabel="navigationView">
-                            <rect key="frame" x="8" y="1" width="359" height="43"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시편 23:1~16" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eb6-hI-LNZ" userLabel="CourseRange">
-                                    <rect key="frame" x="132.5" y="0.0" width="94" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="iaU-t9-8ng" userLabel="CourseRangePb">
-                                    <rect key="frame" x="0.0" y="31" width="359" height="2"/>
-                                    <color key="tintColor" red="0.01089341752" green="0.79868286850000003" blue="0.7309702039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="progressTintColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="trackTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </progressView>
-                            </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="eb6-hI-LNZ" firstAttribute="centerX" secondItem="H1e-u1-POF" secondAttribute="centerX" id="Ob7-Fn-VFm"/>
-                                <constraint firstAttribute="trailing" secondItem="iaU-t9-8ng" secondAttribute="trailing" id="aIW-4M-8bG"/>
-                                <constraint firstAttribute="bottom" secondItem="iaU-t9-8ng" secondAttribute="bottom" constant="10" id="dS5-Oo-sr1"/>
-                                <constraint firstItem="iaU-t9-8ng" firstAttribute="top" secondItem="eb6-hI-LNZ" secondAttribute="bottom" constant="10" id="jFq-v6-srr"/>
-                                <constraint firstItem="iaU-t9-8ng" firstAttribute="leading" secondItem="H1e-u1-POF" secondAttribute="leading" id="vKb-Mm-7by"/>
-                            </constraints>
-                        </view>
                     </navigationItem>
                     <connections>
                         <outlet property="courseRangeLbl" destination="eb6-hI-LNZ" id="Xc2-Z5-g8h"/>

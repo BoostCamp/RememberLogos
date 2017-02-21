@@ -44,6 +44,9 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.messageTableView.estimatedRowHeight = 180
+        self.messageTableView.rowHeight = UITableViewAutomaticDimension
+        
         self.voiceTextView.text = Constants.inactiveText
         
         self.navigationItem.title = course.name
@@ -91,6 +94,7 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     public func recognizer(_ aRecognizer: NSKRecognizer!, didReceiveError aError: Error!) {
         print("Error: \(aError)")
         self.recitaionButton.isEnabled = true
+//        self.voiceTextView.text = Constants.inactiveText
     }
     
     func recognizer(_ aRecognizer: NSKRecognizer!, didReceive aResult: NSKRecognizedResult!) {
@@ -129,7 +133,7 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     public func recognizerDidEnterInactive(_ aRecognizer: NSKRecognizer!) {
         print("Event occurred: Inactive")
-        self.voiceTextView.text = Constants.inactiveText
+//        self.voiceTextView.text = Constants.inactiveText
     }
     
     // recognizerStartTimer func
@@ -148,7 +152,19 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         if let selectedRow = messageTableView.indexPathForSelectedRow,
             let cell = messageTableView.cellForRow(at: selectedRow) as? MessageCell {
             
-            if cell.compareMessage(aResult: aResult) {
+            let result = cell.compareMessage(aResult: aResult)
+            
+            if let ranges = result["ranges"] as? [NSRange] {
+                let mutableAttrStr = NSMutableAttributedString(attributedString: self.voiceTextView.attributedText)
+                
+                ranges.forEach({ (range :NSRange) in
+                    mutableAttrStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: range)
+                })
+                
+                self.voiceTextView.attributedText = mutableAttrStr
+            }
+            
+            if (result["isVerseEnd"] as! Bool) {
                 changeVerse()
             }
         }
@@ -184,7 +200,6 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             }
             }
         )
-        
         
         present(alertController, animated: true, completion: nil)
         

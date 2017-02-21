@@ -178,5 +178,34 @@
 			</dict>
 		</array>
 	</dict>
+	<dict>
+		<key>desc</key>
+		<string>Test2</string>
+		<key>name</key>
+		<string>Test2</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>시편</string>
+				<key>verse</key>
+				<integer>4</integer>
+				<key>chapter</key>
+				<integer>23</integer>
+				<key>text</key>
+				<string>내가 사망의 음침한 골짜기로 다닐지라도 해를 두려워하지 않을 것은 주께서 나와 함께 하심이라 주의 지팡이와 막대기가 나를 안위하시나이다</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>시편</string>
+				<key>verse</key>
+				<integer>5</integer>
+				<key>chapter</key>
+				<integer>23</integer>
+				<key>text</key>
+				<string>주께서 내 원수의 목전에서 내게 상을 차려 주시고 기름을 내 머리에 부으셨으니 내 잔이 넘치나이다</string>
+			</dict>
+		</array>
+	</dict>
 </array>
 </plist>
