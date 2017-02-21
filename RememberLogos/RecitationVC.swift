@@ -30,9 +30,18 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     private let ClientID = "710CwSWlxkzXAQdSa6CV"
     private let nskSpeechRecognizer: NSKRecognizer
     
+    // Sound Effect
+    var audioPlayer:AVAudioPlayer!
+    var startSoundPath:String!
+    var endSoundPath:String!
+
+    
     // controller init
     
     required init?(coder aDecoder: NSCoder) {
+        startSoundPath =  Bundle.main.path(forResource: "startRecitation", ofType: "wav")
+        endSoundPath = Bundle.main.path(forResource: "endRecitation", ofType: "wav")
+        
         // NSKRecognizer를 초기화 하는데 필요한 NSKRecognizerConfiguration을 생성
         let configuration = NSKRecognizerConfiguration(clientID: ClientID)
         configuration?.canQuestionDetected = true
@@ -44,13 +53,16 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
         self.messageTableView.estimatedRowHeight = 180
         self.messageTableView.rowHeight = UITableViewAutomaticDimension
         
         self.voiceTextView.text = Constants.inactiveText
         
-        self.navigationItem.title = course.name
-        self.courseRangeLbl.text = course.desc
+        self.navigationItem.title = course.desc
+        self.navigationItem.prompt = course.name
+//        self.courseRangeLbl.text = course.desc
         
         self.currentVerse = 0
         self.currentMessage = course.messages[currentVerse]
@@ -61,6 +73,15 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         selectMessage(row: currentVerse)
         // FOR TEST
 //        showComplateCourse()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        try! audioSession.setActive(false)
+        UIView.performWithoutAnimation {
+            self.navigationItem.prompt = nil
+        }
     }
     
     // delegate overriding - UITableViewDelegate
@@ -93,7 +114,7 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     public func recognizer(_ aRecognizer: NSKRecognizer!, didReceiveError aError: Error!) {
         print("Error: \(aError)")
-        self.recitaionButton.isEnabled = true
+        stopRecognizer()
 //        self.voiceTextView.text = Constants.inactiveText
     }
     
@@ -225,10 +246,11 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     private func startRecognizer() {
+        playStartSound()
         
         let audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession.setCategory(AVAudioSessionCategoryRecord)
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
             try audioSession.setMode(AVAudioSessionModeMeasurement)
             try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
             
@@ -241,14 +263,33 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     private func stopRecognizer() {
+        playEndSound()
         
         nskSpeechRecognizer.stop()
         
         recitaionButton.isEnabled = true
-        
-        let audioSession = AVAudioSession.sharedInstance()
-        try! audioSession.setActive(false)
-        
+    }
+    
+    private func playStartSound() {
+        do {
+            let url = URL(fileURLWithPath: startSoundPath)
+            try self.audioPlayer =  AVAudioPlayer(contentsOf: url)
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+        } catch {
+            print("play start sound error")
+        }
+    }
+    
+    private func playEndSound() {
+        do {
+            let url = URL(fileURLWithPath: endSoundPath)
+            try self.audioPlayer =  AVAudioPlayer(contentsOf: url)
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+        } catch {
+            print("play start sound error")
+        }
     }
     
     @IBAction func startRecitation(_ sender: UIButton) {

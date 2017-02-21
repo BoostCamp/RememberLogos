@@ -81,26 +81,35 @@ class MessageCell: UITableViewCell {
             for (index, ch) in aResult.characters.enumerated() {
                 
                 // for Debug
-                //print("voice: \(ch), message: \(message[currentIndex])")
-                //print("messageIndex:\(currentIndex), message.endIndex: \(message.endIndex)")
+                print("voice: \(ch), message: \(text[currentIndex])")
+                print("messageIndex:\(currentIndex), message.endIndex: \(text.endIndex)")
+                while text[currentIndex] == " " {
+                    currentIndex = text.index(after: currentIndex)
+                }
                 
-                if(ch == text[currentIndex]) {
+                
+                if ch == text[currentIndex] {
                     
-                    if let lastRange = correspondIndexes.last, NSMaxRange(lastRange) == (index - 1){
+                    isChanged = true
+                    
+                    if let lastRange = correspondIndexes.last, NSMaxRange(lastRange) == index{
+                        print("last1 : \(lastRange)\n \(index)")
                         let _ = correspondIndexes.popLast()
                         correspondIndexes.append(NSMakeRange(lastRange.location, lastRange.length + 1))
                     } else {
+                        print("last2 : \(index)\n")
                         correspondIndexes.append(NSMakeRange(index, 1))
                     }
                     
-                    isChanged = true
                     currentIndex = text.index(after: currentIndex)
-                    
                     if currentIndex == text.endIndex {
                         isVerseEnd = true
                         break
                     }
+                    
                 }
+
+                
             }
             
             if isChanged {

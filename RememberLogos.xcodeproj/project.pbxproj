@@ -20,6 +20,8 @@
 		5AE623181E542AC9002C9E13 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE623171E542AC9002C9E13 /* MessageCell.swift */; };
 		5AE6231A1E542B5B002C9E13 /* RecitationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE623191E542B5B002C9E13 /* RecitationVC.swift */; };
 		5AE6231C1E542BD3002C9E13 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE6231B1E542BD3002C9E13 /* Constants.swift */; };
+		5AEA66C01E5C2C9F00F0F863 /* startRecitation.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5AEA66BE1E5C2C9F00F0F863 /* startRecitation.wav */; };
+		5AEA66C11E5C2C9F00F0F863 /* endRecitation.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5AEA66BF1E5C2C9F00F0F863 /* endRecitation.wav */; };
 		5AEAC5051E56BD320020BD52 /* courses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AEAC5041E56BD320020BD52 /* courses.plist */; };
 		5AF57B381E5B4ADA002D1BE9 /* light.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AF57B371E5B4ADA002D1BE9 /* light.jpg */; };
 /* End PBXBuildFile section */
@@ -52,6 +54,8 @@
 		5AE623171E542AC9002C9E13 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		5AE623191E542B5B002C9E13 /* RecitationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecitationVC.swift; sourceTree = "<group>"; };
 		5AE6231B1E542BD3002C9E13 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5AEA66BE1E5C2C9F00F0F863 /* startRecitation.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = startRecitation.wav; sourceTree = "<group>"; };
+		5AEA66BF1E5C2C9F00F0F863 /* endRecitation.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = endRecitation.wav; sourceTree = "<group>"; };
 		5AEAC5041E56BD320020BD52 /* courses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = courses.plist; sourceTree = "<group>"; };
 		5AF57B371E5B4ADA002D1BE9 /* light.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = light.jpg; sourceTree = "<group>"; };
 		91666ED7BD593CDE88EC5F09 /* Pods-RememberLogos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RememberLogos.release.xcconfig"; path = "Pods/Target Support Files/Pods-RememberLogos/Pods-RememberLogos.release.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 		5AEAC5031E56BD170020BD52 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				5AEA66BE1E5C2C9F00F0F863 /* startRecitation.wav */,
+				5AEA66BF1E5C2C9F00F0F863 /* endRecitation.wav */,
 				5AF57B371E5B4ADA002D1BE9 /* light.jpg */,
 				5AEAC5041E56BD320020BD52 /* courses.plist */,
 			);
@@ -228,7 +234,9 @@
 				5AE623041E5416F2002C9E13 /* Assets.xcassets in Resources */,
 				5AF57B381E5B4ADA002D1BE9 /* light.jpg in Resources */,
 				5AE623021E5416F2002C9E13 /* Main.storyboard in Resources */,
+				5AEA66C11E5C2C9F00F0F863 /* endRecitation.wav in Resources */,
 				5AEAC5051E56BD320020BD52 /* courses.plist in Resources */,
+				5AEA66C01E5C2C9F00F0F863 /* startRecitation.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
