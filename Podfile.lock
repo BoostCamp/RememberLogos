@@ -1,15 +1,34 @@
 PODS:
   - ABSteppedProgressBar (0.0.8)
+  - Firebase/Core (3.13.0):
+    - FirebaseAnalytics (= 3.7.0)
+    - FirebaseCore (= 3.5.0)
+  - FirebaseAnalytics (3.7.0):
+    - FirebaseCore (~> 3.5)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseCore (3.5.0):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseInstanceID (1.0.9)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
   - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - ABSteppedProgressBar
+  - Firebase/Core
   - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   ABSteppedProgressBar: c9f782ab93aba7777f7da0efb8164e73e816f226
+  Firebase: 5bc34d7b5ff5792e3386c8b28dc6265deeab0da4
+  FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
+  FirebaseCore: 1c0a13bf59bb95cdd19577252499f0ec6a03e999
+  FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 761306d3faca6a907d31f85677d534b448e1e0a8
+PODFILE CHECKSUM: 542078d4ce3c05c1c051927ce0379e3c519cb6cf
 
 COCOAPODS: 1.2.0

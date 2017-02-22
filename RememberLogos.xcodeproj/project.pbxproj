@@ -11,6 +11,8 @@
 		5A0362601E5D250600FBB3D3 /* endCourse.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5A03625F1E5D250600FBB3D3 /* endCourse.wav */; };
 		5A0362621E5D280200FBB3D3 /* result.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5A0362611E5D280200FBB3D3 /* result.wav */; };
 		5A0362661E5D28A200FBB3D3 /* noResult.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5A0362651E5D28A200FBB3D3 /* noResult.wav */; };
+		5A4329C11E5D78D800A849FE /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4329C01E5D78D800A849FE /* DataCenter.swift */; };
+		5A4329C31E5D7B3D00A849FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A4329C21E5D7B3D00A849FE /* GoogleService-Info.plist */; };
 		5A9364831E5454DC007D8AC4 /* CourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9364821E5454DC007D8AC4 /* CourseVC.swift */; };
 		5A9364851E54555E007D8AC4 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9364841E54555E007D8AC4 /* Course.swift */; };
 		5AE622FD1E5416F2002C9E13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE622FC1E5416F2002C9E13 /* AppDelegate.swift */; };
@@ -47,6 +49,8 @@
 		5A03625F1E5D250600FBB3D3 /* endCourse.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = endCourse.wav; sourceTree = "<group>"; };
 		5A0362611E5D280200FBB3D3 /* result.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = result.wav; sourceTree = "<group>"; };
 		5A0362651E5D28A200FBB3D3 /* noResult.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = noResult.wav; sourceTree = "<group>"; };
+		5A4329C01E5D78D800A849FE /* DataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCenter.swift; sourceTree = "<group>"; };
+		5A4329C21E5D7B3D00A849FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A9364821E5454DC007D8AC4 /* CourseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseVC.swift; sourceTree = "<group>"; };
 		5A9364841E54555E007D8AC4 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		5AE622F91E5416F2002C9E13 /* RememberLogos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RememberLogos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,10 +122,12 @@
 				5AE623121E542A51002C9E13 /* view */,
 				5AE622FC1E5416F2002C9E13 /* AppDelegate.swift */,
 				5AE623001E5416F2002C9E13 /* Main.storyboard */,
+				5A4329C21E5D7B3D00A849FE /* GoogleService-Info.plist */,
 				5AE623031E5416F2002C9E13 /* Assets.xcassets */,
 				5AE623051E5416F2002C9E13 /* LaunchScreen.storyboard */,
 				5AE623081E5416F2002C9E13 /* Info.plist */,
 				5AE6231B1E542BD3002C9E13 /* Constants.swift */,
+				5A4329C01E5D78D800A849FE /* DataCenter.swift */,
 			);
 			path = RememberLogos;
 			sourceTree = "<group>";
@@ -248,6 +254,7 @@
 				5A0362621E5D280200FBB3D3 /* result.wav in Resources */,
 				5AEA66C11E5C2C9F00F0F863 /* endRecitation.wav in Resources */,
 				5AEAC5051E56BD320020BD52 /* courses.plist in Resources */,
+				5A4329C31E5D7B3D00A849FE /* GoogleService-Info.plist in Resources */,
 				5AEA66C01E5C2C9F00F0F863 /* startRecitation.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A4329C11E5D78D800A849FE /* DataCenter.swift in Sources */,
 				5AE6231A1E542B5B002C9E13 /* RecitationVC.swift in Sources */,
 				5A9364851E54555E007D8AC4 /* Course.swift in Sources */,
 				5A9364831E5454DC007D8AC4 /* CourseVC.swift in Sources */,

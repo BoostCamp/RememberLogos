@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 
 let globalTintColor = UIColor(red: 50.0/255.0, green: 200.0/255.0, blue: 210.0/255.0, alpha: 0.5)
 
@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FIRApp.configure()
         window?.tintColor = UIColor(red: 50.0/255.0, green: 200.0/255.0, blue: 210.0/255.0, alpha: 0.5)
         return true
     }
