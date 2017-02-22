@@ -13,9 +13,6 @@ import ABSteppedProgressBar
 
 class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSKRecognizerDelegate, ABSteppedProgressBarDelegate {
     
-    
-//    @IBOutlet weak var courseRangePb: UIProgressView!
-    
     @IBOutlet weak var courseProgressBar: ABSteppedProgressBar!
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var voiceTextView: UITextView!
@@ -89,14 +86,11 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     override func viewDidAppear(_ animated: Bool) {
         selectMessage(row: currentVerse)
-        // FOR TEST
-//        showComplateCourse()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
         nskSpeechRecognizer.stop()
-        
         
         UIView.performWithoutAnimation {
             self.navigationItem.prompt = nil
@@ -132,6 +126,25 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     // delegate overriding - ABSteppedProgressBarDelegate
     
     func progressBar(_ progressBar: ABSteppedProgressBar, canSelectItemAtIndex index: Int) -> Bool {
+        
+        if currentVerse < index {
+            
+            let targetMessage = messages[index]
+            let skipActionSheetController = UIAlertController(title: "암송을 건너뛰기", message: "현재 암송중인 말씀을 외우지 않고 \(targetMessage.verse)절로 건너뛰길 원하십니까?\n 중간에 건너 뛴 말씀(들)은 점수가 0점이 됩니다.", preferredStyle: .actionSheet)
+            
+            skipActionSheetController.addAction(UIAlertAction(title: "예", style: .destructive) { (action: UIAlertAction!) in
+                self.changeVerse(targetIndex:index)
+            })
+            
+            skipActionSheetController.addAction(UIAlertAction(title: "아니요", style: .cancel) { (action: UIAlertAction!) in
+                
+                skipActionSheetController.dismiss(animated: true)
+                
+            })
+            present(skipActionSheetController, animated: true, completion: nil)
+            
+        }
+        
         return false
     }
     
@@ -229,19 +242,18 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             }
             
             if (result["isVerseEnd"] as! Bool) {
-                changeVerse()
+                changeVerse(targetIndex: currentVerse + 1)
             }
         }
     }
     
-    private func changeVerse() {
+    private func changeVerse(targetIndex: Int) {
+        print("currentVerse:\(currentVerse), targetIndex: \(targetIndex)")
         
-        print("currentVerse:\(currentVerse), messages.count: \(messages.count)")
-        
-        if currentVerse < messages.count - 1 {
-            currentVerse = currentVerse + 1
-            courseProgressBar.currentIndex = currentVerse
-            selectMessage(row: currentVerse)
+        if targetIndex < messages.count {
+            currentVerse = targetIndex
+            courseProgressBar.currentIndex = targetIndex
+            selectMessage(row: targetIndex)
         } else {
             showComplateCourse()
         }
@@ -251,6 +263,7 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     private func showComplateCourse() {
     
         playSound(path: endCourseSoundPath)
+        
         let alertController = UIAlertController(title: "암송을 완료하였습니다. 다음 코스를 진행하시겠습니까?", message: nil, preferredStyle: .actionSheet)
         
         alertController.addAction(UIAlertAction(title: "예", style: .default) { (action: UIAlertAction!) in
@@ -286,6 +299,7 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         guard numberOfRows > row else {
             return
         }
+//        print("selectMessage : \(row)")
         messageTableView.selectRow(at: IndexPath(row: row, section:0), animated: true, scrollPosition: UITableViewScrollPosition.middle)
     }
     
@@ -337,4 +351,48 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         startRecognizer()
     }
     
+    @IBAction func showHintPopup(_ sender: UIBarButtonItem) {
+        
+        let hintActionSheetController = UIAlertController(title: "말씀 힌트!", message: "현재 진행중인 말씀이 기억나지 않으세요?\n 그렇다면 5초 동안 말씀을 보시겠습니까?", preferredStyle: .actionSheet)
+        
+        hintActionSheetController.addAction(UIAlertAction(title: "예", style: .destructive) { (action: UIAlertAction!) in
+            
+            let currentMsg = self.messages[self.currentVerse]
+            let currentMsgVerse = currentMsg.book + " \(currentMsg.chapter):\(currentMsg.verse)"
+            let currentMsgText = currentMsg.text
+            
+            let hintController = UIAlertController(title: currentMsgText, message: currentMsgVerse + " (5초)", preferredStyle: .alert)
+            
+            var remainningSec = 0
+            let hintTimer = Timer(timeInterval: 1, repeats: true, block: { (timer) in
+                remainningSec += 1
+                
+                hintController.message = currentMsgVerse + " (\(5 - remainningSec)초)"
+                if(remainningSec >= 5) {
+                    timer.invalidate()
+                    hintController.dismiss(animated: true)
+                }
+                
+            })
+            
+            hintController.addAction(UIAlertAction(title: "힌트 종료", style: .cancel, handler: { (UIAlertAction) in
+                hintTimer.invalidate()
+            }))
+            self.present(hintController, animated: true) {
+                
+                RunLoop.main.add(hintTimer, forMode: RunLoopMode.defaultRunLoopMode)
+            
+            }
+            
+            }
+        )
+        
+        hintActionSheetController.addAction(UIAlertAction(title: "아니요", style: .cancel) { (action: UIAlertAction!) in
+            
+            hintActionSheetController.dismiss(animated: true)
+            
+            }
+        )
+        present(hintActionSheetController, animated: true, completion: nil)
+    }
 }

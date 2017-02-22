@@ -208,7 +208,14 @@
                             <constraint firstItem="HDr-SR-t78" firstAttribute="top" secondItem="bQs-9h-Jy7" secondAttribute="bottom" constant="15" id="zOy-gQ-quK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Recitation" prompt="시편 23:1~16" id="J8i-aO-BHf"/>
+                    <navigationItem key="navigationItem" title="Recitation" prompt="시편 23:1~16" id="J8i-aO-BHf">
+                        <barButtonItem key="rightBarButtonItem" title="Hint" id="IM4-8E-hug">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="showHintPopup:" destination="BYZ-38-t0r" id="Scv-xH-x6K"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="courseProgressBar" destination="bQs-9h-Jy7" id="cGj-zg-qUH"/>
                         <outlet property="messageTableView" destination="HDr-SR-t78" id="3u9-bX-FpL"/>

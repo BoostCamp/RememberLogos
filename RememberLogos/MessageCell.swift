@@ -11,15 +11,15 @@ import CoreText
 import TTTAttributedLabel
 
 class MessageCell: UITableViewCell {
+
+    private static let messageColor = UIColor(red: 7.0/255.0, green: 171.0/255.0, blue: 195.0/255.0, alpha: 1)
     
     @IBOutlet weak var verseLabel: UILabel!
     @IBOutlet weak var messageLabel: TTTAttributedLabel!
     
-    private var hiddenRanges:[NSRange] = [NSRange]()
-    private var currentIndex: String.Index!
+    private var _hiddenRanges:[NSRange]!
+    private var _currentIndex: String.Index!
     private var _message:Message!
-    
-    private let messageColor = UIColor(red: 7.0/255.0, green: 171.0/255.0, blue: 195.0/255.0, alpha: 1)
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,7 +34,8 @@ class MessageCell: UITableViewCell {
         
         verseLabel.text = "\(message.verse)"
         messageLabel.text = text
-        currentIndex = message.text.startIndex
+        _currentIndex = message.text.startIndex
+        _hiddenRanges = [NSRange]()
         _message = message
         
         blankText(text)
@@ -46,7 +47,7 @@ class MessageCell: UITableViewCell {
         text.enumerateSubstrings(in: (text.startIndex..<text.endIndex), options: String.EnumerationOptions.byWords) { (substring: String?, substringRange  : Range<String.Index>, enclosingRange: Range<String.Index>, false) in
             if let substring = substring, !(substring.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty) {
                     
-                self.hiddenRanges.append(NSMakeRange(text.distance(from: text.startIndex, to: enclosingRange.lowerBound), text.distance(from: enclosingRange.lowerBound, to: enclosingRange.upperBound)))
+                self._hiddenRanges.append(NSMakeRange(text.distance(from: text.startIndex, to: enclosingRange.lowerBound), text.distance(from: enclosingRange.lowerBound, to: enclosingRange.upperBound)))
                 
             }
         }
@@ -59,7 +60,7 @@ class MessageCell: UITableViewCell {
             
             mutableAttrStr.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, text.characters.count))
             
-            for range in hiddenRanges {
+            for range in _hiddenRanges {
                 mutableAttrStr.addAttribute(kTTTBackgroundFillColorAttributeName, value: globalTintColor, range: range)
                 mutableAttrStr.addAttribute(kTTTBackgroundCornerRadiusAttributeName, value: 5.0, range: range)
             }
@@ -73,7 +74,7 @@ class MessageCell: UITableViewCell {
         
         var correspondIndexes = [NSRange]()
         
-        if let message = _message, var currentIndex = self.currentIndex {
+        if let message = _message, var currentIndex = self._currentIndex {
             
             var isChanged = false
             let text = message.text
@@ -113,7 +114,7 @@ class MessageCell: UITableViewCell {
             }
             
             if isChanged {
-                self.currentIndex = currentIndex
+                self._currentIndex = currentIndex
                 changeMessageLabel()
             }
         }
@@ -125,12 +126,12 @@ class MessageCell: UITableViewCell {
         if let message = messageLabel.text, let attributedText = messageLabel.attributedText {
             
             let discoveredRange = NSMakeRange(message.distance(from: message.startIndex, to: message.startIndex),
-                                              message.distance(from: message.startIndex, to: currentIndex))
+                                              message.distance(from: message.startIndex, to: _currentIndex))
             
             let mutableAttrStr = NSMutableAttributedString(attributedString: attributedText)
             
             mutableAttrStr.removeAttribute(kTTTBackgroundFillColorAttributeName, range: discoveredRange)
-            mutableAttrStr.addAttribute(kCTForegroundColorAttributeName as String, value: messageColor, range: discoveredRange)
+            mutableAttrStr.addAttribute(kCTForegroundColorAttributeName as String, value: MessageCell.messageColor, range: discoveredRange)
             
             messageLabel.attributedText = mutableAttrStr
         }
