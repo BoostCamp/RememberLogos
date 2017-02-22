@@ -25,7 +25,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember Logos" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6e-FH-VGe">
                                 <rect key="frame" x="84" y="360" width="207" height="81"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="40"/>
-                                <color key="textColor" red="0.1333333333" green="0.81568627449999997" blue="0.53333333329999999" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.19607843137254902" green="0.78431372549019607" blue="0.82352941176470584" alpha="0.89699272260273977" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="light.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="tyk-5A-yBb">

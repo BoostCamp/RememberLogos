@@ -1,12 +1,15 @@
 PODS:
+  - ABSteppedProgressBar (0.0.8)
   - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
+  - ABSteppedProgressBar
   - TTTAttributedLabel
 
 SPEC CHECKSUMS:
+  ABSteppedProgressBar: c9f782ab93aba7777f7da0efb8164e73e816f226
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 0e2ee99eaabf5ad1937edbde1eab5bb5db5a1f06
+PODFILE CHECKSUM: 761306d3faca6a907d31f85677d534b448e1e0a8
 
 COCOAPODS: 1.2.0

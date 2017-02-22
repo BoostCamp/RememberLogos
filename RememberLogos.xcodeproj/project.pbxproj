@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2D199216414AF50F5810A678 /* Pods_RememberLogos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB145F6C3874F76FAF304FED /* Pods_RememberLogos.framework */; };
+		5A0362601E5D250600FBB3D3 /* endCourse.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5A03625F1E5D250600FBB3D3 /* endCourse.wav */; };
+		5A0362621E5D280200FBB3D3 /* result.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5A0362611E5D280200FBB3D3 /* result.wav */; };
+		5A0362661E5D28A200FBB3D3 /* noResult.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5A0362651E5D28A200FBB3D3 /* noResult.wav */; };
 		5A9364831E5454DC007D8AC4 /* CourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9364821E5454DC007D8AC4 /* CourseVC.swift */; };
 		5A9364851E54555E007D8AC4 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9364841E54555E007D8AC4 /* Course.swift */; };
 		5AE622FD1E5416F2002C9E13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE622FC1E5416F2002C9E13 /* AppDelegate.swift */; };
@@ -41,6 +44,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5A03625F1E5D250600FBB3D3 /* endCourse.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = endCourse.wav; sourceTree = "<group>"; };
+		5A0362611E5D280200FBB3D3 /* result.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = result.wav; sourceTree = "<group>"; };
+		5A0362651E5D28A200FBB3D3 /* noResult.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = noResult.wav; sourceTree = "<group>"; };
 		5A9364821E5454DC007D8AC4 /* CourseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseVC.swift; sourceTree = "<group>"; };
 		5A9364841E54555E007D8AC4 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		5AE622F91E5416F2002C9E13 /* RememberLogos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RememberLogos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,8 +155,11 @@
 		5AEAC5031E56BD170020BD52 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				5A03625F1E5D250600FBB3D3 /* endCourse.wav */,
+				5A0362651E5D28A200FBB3D3 /* noResult.wav */,
 				5AEA66BE1E5C2C9F00F0F863 /* startRecitation.wav */,
 				5AEA66BF1E5C2C9F00F0F863 /* endRecitation.wav */,
+				5A0362611E5D280200FBB3D3 /* result.wav */,
 				5AF57B371E5B4ADA002D1BE9 /* light.jpg */,
 				5AEAC5041E56BD320020BD52 /* courses.plist */,
 			);
@@ -230,10 +239,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A0362601E5D250600FBB3D3 /* endCourse.wav in Resources */,
 				5AE623071E5416F2002C9E13 /* LaunchScreen.storyboard in Resources */,
+				5A0362661E5D28A200FBB3D3 /* noResult.wav in Resources */,
 				5AE623041E5416F2002C9E13 /* Assets.xcassets in Resources */,
 				5AF57B381E5B4ADA002D1BE9 /* light.jpg in Resources */,
 				5AE623021E5416F2002C9E13 /* Main.storyboard in Resources */,
+				5A0362621E5D280200FBB3D3 /* result.wav in Resources */,
 				5AEA66C11E5C2C9F00F0F863 /* endRecitation.wav in Resources */,
 				5AEAC5051E56BD320020BD52 /* courses.plist in Resources */,
 				5AEA66C01E5C2C9F00F0F863 /* startRecitation.wav in Resources */,

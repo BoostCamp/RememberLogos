@@ -174,7 +174,47 @@
 				<key>chapter</key>
 				<integer>1</integer>
 				<key>text</key>
-				<string>안녕하세요</string>
+				<string>안녕</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>테스트</string>
+				<key>verse</key>
+				<integer>1</integer>
+				<key>chapter</key>
+				<integer>1</integer>
+				<key>text</key>
+				<string>안녕</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>테스트</string>
+				<key>verse</key>
+				<integer>1</integer>
+				<key>chapter</key>
+				<integer>1</integer>
+				<key>text</key>
+				<string>안녕</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>테스트</string>
+				<key>verse</key>
+				<integer>1</integer>
+				<key>chapter</key>
+				<integer>1</integer>
+				<key>text</key>
+				<string>안녕</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>테스트</string>
+				<key>verse</key>
+				<integer>1</integer>
+				<key>chapter</key>
+				<integer>1</integer>
+				<key>text</key>
+				<string>안녕</string>
 			</dict>
 		</array>
 	</dict>

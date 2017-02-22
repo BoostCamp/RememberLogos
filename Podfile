@@ -6,5 +6,6 @@ target 'RememberLogos' do
   use_frameworks!
 	
   pod 'TTTAttributedLabel'
+  pod 'ABSteppedProgressBar'
 
 end

@@ -9,12 +9,14 @@
 import UIKit
 import AVFoundation
 import NaverSpeech
+import ABSteppedProgressBar
 
-class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSKRecognizerDelegate {
+class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSKRecognizerDelegate, ABSteppedProgressBarDelegate {
     
-    @IBOutlet weak var courseRangeLbl: UILabel!
-    @IBOutlet weak var courseRangePb: UIProgressView!
     
+//    @IBOutlet weak var courseRangePb: UIProgressView!
+    
+    @IBOutlet weak var courseProgressBar: ABSteppedProgressBar!
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var voiceTextView: UITextView!
     @IBOutlet weak var recitaionButton: UIButton!
@@ -34,6 +36,9 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var audioPlayer:AVAudioPlayer!
     var startSoundPath:String!
     var endSoundPath:String!
+    var noResultSoundPath:String!
+    var resultSoundPath:String!
+    var endCourseSoundPath:String!
 
     
     // controller init
@@ -41,6 +46,9 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     required init?(coder aDecoder: NSCoder) {
         startSoundPath =  Bundle.main.path(forResource: "startRecitation", ofType: "wav")
         endSoundPath = Bundle.main.path(forResource: "endRecitation", ofType: "wav")
+        noResultSoundPath = Bundle.main.path(forResource: "noResult", ofType: "wav")
+        resultSoundPath = Bundle.main.path(forResource: "result", ofType: "wav")
+        endCourseSoundPath = Bundle.main.path(forResource: "endCourse", ofType: "wav")
         
         // NSKRecognizer를 초기화 하는데 필요한 NSKRecognizerConfiguration을 생성
         let configuration = NSKRecognizerConfiguration(clientID: ClientID)
@@ -62,11 +70,21 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         self.navigationItem.title = course.desc
         self.navigationItem.prompt = course.name
-//        self.courseRangeLbl.text = course.desc
         
         self.currentVerse = 0
         self.currentMessage = course.messages[currentVerse]
-        self.courseRangePb.setProgress(Float(currentVerse) / Float(messages.count), animated: true)
+        
+        
+        if self.messages.count < 3 {
+            courseProgressBar.isHidden = true
+            let heightConstraint = self.courseProgressBar.heightAnchor.constraint(equalToConstant: 0)
+            NSLayoutConstraint.activate([heightConstraint])
+        } else {
+            courseProgressBar.delegate = self
+            courseProgressBar.numberOfPoints = messages.count
+            courseProgressBar.currentIndex = 0
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,8 +95,9 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     override func viewWillDisappear(_ animated: Bool) {
         
-        let audioSession = AVAudioSession.sharedInstance()
-        try! audioSession.setActive(false)
+        nskSpeechRecognizer.stop()
+        
+        
         UIView.performWithoutAnimation {
             self.navigationItem.prompt = nil
         }
@@ -110,6 +129,21 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
     }
     
+    // delegate overriding - ABSteppedProgressBarDelegate
+    
+    func progressBar(_ progressBar: ABSteppedProgressBar, canSelectItemAtIndex index: Int) -> Bool {
+        return false
+    }
+    
+    func progressBar(_ progressBar: ABSteppedProgressBar, textAtIndex index: Int) -> String {
+        
+        if messages.count > index {
+            return "\(messages[index].verse)"
+        } else {
+            return "\(index)"
+        }
+    }
+    
     // delegate overriding - NSKRecognizerDelegate
     
     public func recognizer(_ aRecognizer: NSKRecognizer!, didReceiveError aError: Error!) {
@@ -125,7 +159,6 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             compareMessage(aResult: result)
         }
         
-        stopRecognizer()
     }
     
     var privResult: String!
@@ -135,7 +168,6 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         if (privResult == nil) || (aResult != privResult) {
 
             self.voiceTextView.text = aResult
-//            print("Partial result: \(aResult)")
 //            compareMessage(aResult: aResult)
         }
         privResult = aResult
@@ -154,12 +186,14 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     public func recognizerDidEnterInactive(_ aRecognizer: NSKRecognizer!) {
         print("Event occurred: Inactive")
-//        self.voiceTextView.text = Constants.inactiveText
+        
+        stopRecognizer()
     }
     
     // recognizerStartTimer func
     
     func onReady() {
+        playSound(path: startSoundPath)
         self.voiceTextView.text = Constants.defaultVoiceText
         
         if let updateTimer = recitaionStartTimer {
@@ -176,13 +210,22 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             let result = cell.compareMessage(aResult: aResult)
             
             if let ranges = result["ranges"] as? [NSRange] {
-                let mutableAttrStr = NSMutableAttributedString(attributedString: self.voiceTextView.attributedText)
                 
-                ranges.forEach({ (range :NSRange) in
-                    mutableAttrStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: range)
-                })
                 
-                self.voiceTextView.attributedText = mutableAttrStr
+                if ranges.isEmpty {
+                    playSound(path: noResultSoundPath)
+                } else {
+                    let mutableAttrStr = NSMutableAttributedString(attributedString: self.voiceTextView.attributedText)
+                    
+                    ranges.forEach({ (range :NSRange) in
+                        mutableAttrStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: range)
+                    })
+                    
+                    self.voiceTextView.attributedText = mutableAttrStr
+                    
+                    playSound(path: resultSoundPath)
+                }
+                
             }
             
             if (result["isVerseEnd"] as! Bool) {
@@ -197,6 +240,7 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         if currentVerse < messages.count - 1 {
             currentVerse = currentVerse + 1
+            courseProgressBar.currentIndex = currentVerse
             selectMessage(row: currentVerse)
         } else {
             showComplateCourse()
@@ -206,6 +250,7 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     private func showComplateCourse() {
     
+        playSound(path: endCourseSoundPath)
         let alertController = UIAlertController(title: "암송을 완료하였습니다. 다음 코스를 진행하시겠습니까?", message: nil, preferredStyle: .actionSheet)
         
         alertController.addAction(UIAlertAction(title: "예", style: .default) { (action: UIAlertAction!) in
@@ -242,11 +287,9 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             return
         }
         messageTableView.selectRow(at: IndexPath(row: row, section:0), animated: true, scrollPosition: UITableViewScrollPosition.middle)
-        self.courseRangePb.setProgress(Float(currentVerse) / Float(messages.count), animated: true)
     }
     
     private func startRecognizer() {
-        playStartSound()
         
         let audioSession = AVAudioSession.sharedInstance()
         do {
@@ -263,28 +306,23 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     private func stopRecognizer() {
-        playEndSound()
         
         nskSpeechRecognizer.stop()
         
         recitaionButton.isEnabled = true
     }
     
-    private func playStartSound() {
-        do {
-            let url = URL(fileURLWithPath: startSoundPath)
-            try self.audioPlayer =  AVAudioPlayer(contentsOf: url)
-            audioPlayer.prepareToPlay()
-            audioPlayer.play()
-        } catch {
-            print("play start sound error")
-        }
+    private func inactiveAudioSession() {
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        try! audioSession.setActive(false)
     }
     
-    private func playEndSound() {
+    private func playSound(path: String) {
         do {
-            let url = URL(fileURLWithPath: endSoundPath)
+            let url = URL(fileURLWithPath: path)
             try self.audioPlayer =  AVAudioPlayer(contentsOf: url)
+            audioPlayer.volume = 1.0
             audioPlayer.prepareToPlay()
             audioPlayer.play()
         } catch {
