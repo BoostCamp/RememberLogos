@@ -28,7 +28,7 @@ class DataCenter {
         }
     }
     
-    var currentCourse:Course {
+    var currentCourse:Course! {
         get {
             return _currentCourse
         }
@@ -51,6 +51,26 @@ class DataCenter {
         get {
             return _courseResults
         }
+    }
+    
+    func getCourseResult(index : Int) -> CourseResult! {
+        guard index >= _courseResults.count else {
+            return nil
+        }
+        return _courseResults[index]
+    }
+    
+    func getCourseResult(name : String) -> CourseResult! {
+        for result in _courseResults {
+            if result._courseName == name {
+                return result
+            }
+        }
+        return nil
+    }
+    
+    func createCourseResult(result : CourseResult) {
+        _courseResults.append(result)
     }
     
     func save()  {

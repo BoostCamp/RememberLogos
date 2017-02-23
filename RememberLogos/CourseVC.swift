@@ -13,7 +13,6 @@ let coursePlistName = "courses"
 class CourseVC: UITableViewController {
     
     var courses = [Course]()
-    var currentCourse:Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,24 +60,30 @@ class CourseVC: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if (segue.identifier == "showRecitation") {
-            if let recitationVC = segue.destination as? RecitationVC, let indexPath = self.tableView.indexPathForSelectedRow  {
+            if let recitationVC = segue.destination as? RecitationVC, let indexPath = self.tableView.indexPathForSelectedRow {
                 
-                currentCourse = indexPath.row
+                let course = courses[indexPath.row]
                 
-                recitationVC.messages = courses[indexPath.row].messages
-                recitationVC.course = courses[indexPath.row]
+                DataCenter.shared.currentCourse = course
                 
+                recitationVC.messages = course.messages
+                recitationVC.course = course
+                recitationVC.courseResult = DataCenter.shared.getCourseResult(name: course.name)
             }
         }
         if (segue.identifier == "nextRecitation") {
-            if let recitationVC = segue.destination as? RecitationVC {
-                
-                currentCourse += 1
-                
-                if courses.count > currentCourse {
-                    recitationVC.messages = courses[currentCourse].messages
-                    recitationVC.course = courses[currentCourse]
+            if let recitationVC = segue.destination as? RecitationVC, let currentCourse = DataCenter.shared.currentCourse, let last = courses.last {
+
+                if last.name == currentCourse.name, let first = courses.first{
+                    DataCenter.shared.currentCourse = first
+                } else if let curIndex = courses.index(where: { (course: Course) -> Bool in
+                        return currentCourse.name == course.name ? true : false
+                }) {
+                    DataCenter.shared.currentCourse = courses[curIndex + 1]
                 }
+                        
+                recitationVC.messages = DataCenter.shared.currentCourse.messages
+                recitationVC.course = DataCenter.shared.currentCourse
             }
         }
     }

@@ -71,7 +71,7 @@ class MessageCell: UITableViewCell {
     
     public func compareMessage(aResult: String!) -> [String: Any] {
         var isVerseEnd = false
-        
+        var correctCount = 0
         var correspondIndexes = [NSRange]()
         
         if let message = _message, var currentIndex = self._currentIndex {
@@ -94,11 +94,11 @@ class MessageCell: UITableViewCell {
                     isChanged = true
                     
                     if let lastRange = correspondIndexes.last, NSMaxRange(lastRange) == index{
-                        print("last1 : \(lastRange)\n \(index)")
+//                        print("last1 : \(lastRange)\n \(index)")
                         let _ = correspondIndexes.popLast()
                         correspondIndexes.append(NSMakeRange(lastRange.location, lastRange.length + 1))
                     } else {
-                        print("last2 : \(index)\n")
+//                        print("last2 : \(index)\n")
                         correspondIndexes.append(NSMakeRange(index, 1))
                     }
                     
@@ -114,12 +114,13 @@ class MessageCell: UITableViewCell {
             }
             
             if isChanged {
+                correctCount = text.distance(from: self._currentIndex, to: currentIndex)
                 self._currentIndex = currentIndex
                 changeMessageLabel()
             }
         }
         
-        return ["ranges": correspondIndexes, "isVerseEnd": isVerseEnd]
+        return ["ranges": correspondIndexes, "isVerseEnd": isVerseEnd, "correctCount": correctCount]
     }
     
     private func changeMessageLabel() {

@@ -27,7 +27,7 @@ class RecitationResult {
     
     var score:Int {
         get {
-            let score = (_correct * 40) + (_hint * 10) - _wrong
+            let score = (_correct * 20) + (_hint * 5) - _wrong
             if score > 0 {
                 return score
             } else {

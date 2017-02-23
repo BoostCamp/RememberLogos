@@ -10,19 +10,27 @@ import UIKit
 import AVFoundation
 import NaverSpeech
 import ABSteppedProgressBar
+import BadgeSwift
 
 class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSKRecognizerDelegate, ABSteppedProgressBarDelegate {
     
     @IBOutlet weak var courseProgressBar: ABSteppedProgressBar!
+    @IBOutlet weak var scoreBadge: BadgeSwift!
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var voiceTextView: UITextView!
     @IBOutlet weak var recitaionButton: UIButton!
-    
+
+    // Content Data
     var messages = [Message]()
     var course: Course!
     
+    
+    // User Data
     var currentMessage: Message!
     var currentVerse: Int!
+    var recitationResult = RecitationResult()
+    var courseResult: CourseResult!
+    
     var recitaionStartTimer: Timer!
     
     // Naver Speech
@@ -72,9 +80,9 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.currentMessage = course.messages[currentVerse]
         
         
-        if self.messages.count < 3 {
+        if self.messages.count < 2 {
             courseProgressBar.isHidden = true
-            let heightConstraint = self.courseProgressBar.heightAnchor.constraint(equalToConstant: 0)
+            let heightConstraint = self.courseProgressBar.widthAnchor.constraint(equalToConstant: 0)
             NSLayoutConstraint.activate([heightConstraint])
         } else {
             courseProgressBar.delegate = self
@@ -82,6 +90,7 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             courseProgressBar.currentIndex = 0
         }
         
+        scoreBadge.text = "\(0)"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -226,12 +235,19 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             
             let result = cell.compareMessage(aResult: aResult)
             
+            if let correctCount = result["correctCount"] as? Int {
+                recitationResult.increseCorrect(correctCount)
+                scoreBadge.text = "\(recitationResult.score)"
+            }
+            
             if let ranges = result["ranges"] as? [NSRange] {
                 
                 
                 if ranges.isEmpty {
                     playSound(path: noResultSoundPath)
                 } else {
+                    playSound(path: resultSoundPath)
+                    
                     let mutableAttrStr = NSMutableAttributedString(attributedString: self.voiceTextView.attributedText)
                     
                     ranges.forEach({ (range :NSRange) in
@@ -240,7 +256,6 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                     
                     self.voiceTextView.attributedText = mutableAttrStr
                     
-                    playSound(path: resultSoundPath)
                 }
                 
             }

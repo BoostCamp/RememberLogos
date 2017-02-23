@@ -7,5 +7,6 @@ target 'RememberLogos' do
 	
   pod 'TTTAttributedLabel'
   pod 'ABSteppedProgressBar'
+  pod 'BadgeSwift', '~> 4.0'
 
 end
