@@ -9,7 +9,16 @@
 import UIKit
 
 
-let globalTintColor = UIColor(red: 50.0/255.0, green: 200.0/255.0, blue: 210.0/255.0, alpha: 0.5)
+//let globalTintColor = UIColor(red: 50.0/255.0, green: 200.0/255.0, blue: 210.0/255.0, alpha: 0.5)
+
+var globalTintColor : UIColor! {
+    
+    guard let window = UIApplication.shared.keyWindow else {
+        return nil
+    }
+    
+    return window.tintColor
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

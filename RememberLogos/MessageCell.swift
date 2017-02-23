@@ -28,7 +28,7 @@ class MessageCell: UITableViewCell {
         
     }
     
-    func updateUI(message : Message) {
+    public func updateUI(message : Message) {
 
         let text = message.text
         
@@ -123,6 +123,7 @@ class MessageCell: UITableViewCell {
     }
     
     private func changeMessageLabel() {
+        
         if let message = messageLabel.text, let attributedText = messageLabel.attributedText {
             
             let discoveredRange = NSMakeRange(message.distance(from: message.startIndex, to: message.startIndex),
@@ -136,7 +137,21 @@ class MessageCell: UITableViewCell {
             messageLabel.attributedText = mutableAttrStr
         }
         
-        
+    }
+    
+    public func discoverAllText () {
+        if let message = messageLabel.text, let attributedText = messageLabel.attributedText {
+            
+            let discoveredRange = NSMakeRange(message.distance(from: message.startIndex, to: message.startIndex),
+                                              message.distance(from: message.startIndex, to: message.endIndex))
+            
+            let mutableAttrStr = NSMutableAttributedString(attributedString: attributedText)
+            
+            mutableAttrStr.removeAttribute(kTTTBackgroundFillColorAttributeName, range: discoveredRange)
+            mutableAttrStr.addAttribute(kCTForegroundColorAttributeName as String, value: MessageCell.messageColor, range: discoveredRange)
+            
+            messageLabel.attributedText = mutableAttrStr
+        }
     }
 
     

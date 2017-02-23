@@ -116,6 +116,10 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             let message = messages[indexPath.row]
             cell.updateUI(message: message)
             
+            if indexPath.row < currentVerse {
+                cell.discoverAllText()
+            }
+            
             return cell
         } else {
             return UITableViewCell()
@@ -248,9 +252,19 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     private func changeVerse(targetIndex: Int) {
-        print("currentVerse:\(currentVerse), targetIndex: \(targetIndex)")
+        // FOR TEST
+//        print("currentVerse:\(currentVerse), targetIndex: \(targetIndex)")
         
         if targetIndex < messages.count {
+            
+            while(currentVerse < targetIndex) {
+                if let cell = messageTableView.cellForRow(at:
+                    IndexPath(row: currentVerse, section: 0)) as? MessageCell {
+                    cell.discoverAllText()
+                }
+                currentVerse = currentVerse + 1
+            }
+            
             currentVerse = targetIndex
             courseProgressBar.currentIndex = targetIndex
             selectMessage(row: targetIndex)
@@ -299,8 +313,7 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         guard numberOfRows > row else {
             return
         }
-//        print("selectMessage : \(row)")
-        messageTableView.selectRow(at: IndexPath(row: row, section:0), animated: true, scrollPosition: UITableViewScrollPosition.middle)
+        messageTableView.selectRow(at: IndexPath(row: row, section:0), animated: true, scrollPosition: UITableViewScrollPosition.bottom)
     }
     
     private func startRecognizer() {
