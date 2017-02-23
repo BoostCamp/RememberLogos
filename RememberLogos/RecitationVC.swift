@@ -245,6 +245,9 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 
                 if ranges.isEmpty {
                     playSound(path: noResultSoundPath)
+                    self.recitationResult.increseWrong()
+                    self.scoreBadge.text = "\(self.recitationResult.score)"
+
                 } else {
                     playSound(path: resultSoundPath)
                     
@@ -411,6 +414,9 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 RunLoop.main.add(hintTimer, forMode: RunLoopMode.defaultRunLoopMode)
             
             }
+            
+            self.recitationResult.increseHint()
+            self.scoreBadge.text = "\(self.recitationResult.score)"
             
             }
         )

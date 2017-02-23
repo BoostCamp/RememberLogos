@@ -10,10 +10,14 @@ import Foundation
 
 class RecitationResult {
     
-    var _correct:Int = 0
-    var _hint:Int = 0
-    var _wrong:Int = 0
-    var _date:Date = Date()
+    static let correctPointWeight = 20
+    static let hintPointWeight = 5
+    static let wrongPointWeight = 1
+    
+    private var _correct:Int = 0
+    private var _hint:Int = 0
+    private var _wrong:Int = 0
+    private var _date:Date = Date()
     
     init(correct:Int, hint:Int, wrong:Int) {
         _correct = correct
@@ -27,7 +31,7 @@ class RecitationResult {
     
     var score:Int {
         get {
-            let score = (_correct * 20) + (_hint * 5) - _wrong
+            let score = (_correct * RecitationResult.correctPointWeight) - (_hint * RecitationResult.hintPointWeight * _correct) - (_wrong * RecitationResult.wrongPointWeight * _correct)
             if score > 0 {
                 return score
             } else {

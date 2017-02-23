@@ -9,14 +9,24 @@
 import Foundation
 
 class DataCenter {
+    static let coursePlistName = "courses"
     
-    var _courseResults = [CourseResult]()
-    var _currentCourse:Course!
-    var _currentMessage:Message!
+    private var _courses = [Course]()
+    
+    private var _courseResults = [CourseResult]()
+    private var _currentCourse:Course!
+    private var _currentMessage:Message!
 
     private static var sharedDataCenter: DataCenter = {
         let dataCenter = DataCenter()
-        // Config
+        
+        // Load Data - start
+        dataCenter.loadCourses()
+        if let currentCourseName = UserDefaults.standard.string(forKey: "currentCourseName"), let currentCourse = dataCenter.getCourse(name : currentCourseName) {
+                dataCenter._currentCourse = currentCourse
+        }
+        // Load Data - end
+        
         return dataCenter
     }()
     
@@ -28,12 +38,39 @@ class DataCenter {
         }
     }
     
+    private func loadCourses() {
+        guard let coursesURL = Bundle.main.url(forResource: DataCenter.coursePlistName, withExtension: "plist") else {
+            print("No Courses File URL")
+            return
+        }
+        
+        guard let coursesNSArray = NSArray(contentsOf: coursesURL) else {
+            print("Cannot convert To Array")
+            return
+        }
+        
+        _courses = coursesNSArray.map({ (item : Any) -> Course in
+            guard let course = item as? [String:AnyObject] else {
+                print("잘못된 형식의 course data : \(item)")
+                return Course()
+            }
+            return Course(course: course)
+        })
+    }
+    
+    var courses: [Course] {
+        get {
+            return _courses
+        }
+    }
+    
     var currentCourse:Course! {
         get {
             return _currentCourse
         }
         set {
             _currentCourse = newValue
+            save()
         }
     }
     
@@ -51,6 +88,15 @@ class DataCenter {
         get {
             return _courseResults
         }
+    }
+    
+    func getCourse(name: String) -> Course! {
+        if let index = _courses.index(where: { (course : Course) -> Bool in
+            return (course.name == name) ? true : false
+        }) {
+            return _courses[index]
+        }
+        return nil
     }
     
     func getCourseResult(index : Int) -> CourseResult! {
@@ -74,10 +120,9 @@ class DataCenter {
     }
     
     func save()  {
-        UserDefaults.standard.setValue(_courseResults, forKey: "courseResult")
-        UserDefaults.standard.setValue(_currentCourse, forKey: "currentCourse")
-        UserDefaults.standard.setValue(_currentMessage, forKey: "currentMessage")
+//        UserDefaults.standard.setValue(_courseResults, forKey: "courseResult")
+        UserDefaults.standard.setValue(_currentCourse.name, forKey: "currentCourseName")
+//        UserDefaults.standard.setValue(_currentMessage, forKey: "currentMessage")
     }
-
     
 }

@@ -77,7 +77,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQs-9h-Jy7" customClass="ABSteppedProgressBar" customModule="ABSteppedProgressBar">
-                                <rect key="frame" x="16" y="99" width="296" height="30"/>
+                                <rect key="frame" x="16" y="99" width="293" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -113,10 +113,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7F-yE-S7w" userLabel="ScoreLabel" customClass="BadgeSwift" customModule="BadgeSwift">
-                                <rect key="frame" x="312" y="99" width="47" height="30"/>
+                                <rect key="frame" x="309" y="99" width="50" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8Xu-R8-3aj"/>
-                                    <constraint firstAttribute="width" constant="47" id="OUR-2h-geG"/>
+                                    <constraint firstAttribute="width" constant="50" id="OUR-2h-geG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -151,7 +151,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZq-Mm-OEm" userLabel="Verse">
-                                                    <rect key="frame" x="8" y="0.0" width="20" height="11"/>
+                                                    <rect key="frame" x="8" y="0.0" width="20" height="8.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" placeholder="YES" id="0TP-Ey-vM9"/>
                                                     </constraints>
@@ -160,7 +160,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내가 사망의 음침한 골짜기로 다닐지라도 해를 두려워하지 않을 것은 주께서 나와 함께 하심이라 주의 지팡이와 막대기가 나를 안위하시나이다" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEx-ew-nYd" userLabel="Text" customClass="TTTAttributedLabel">
-                                                    <rect key="frame" x="8" y="16" width="335" height="150"/>
+                                                    <rect key="frame" x="8" y="13.5" width="335" height="154"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -231,7 +231,7 @@
                             <constraint firstItem="bQs-9h-Jy7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="beW-Lo-xMd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HDr-SR-t78" secondAttribute="trailing" id="eHJ-n4-Zhh"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sEY-UK-Z5O" secondAttribute="bottom" id="lzE-ZA-FrP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bQs-9h-Jy7" secondAttribute="trailing" constant="47" id="qCI-oM-OTh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bQs-9h-Jy7" secondAttribute="trailing" constant="50" id="qCI-oM-OTh"/>
                             <constraint firstItem="b7F-yE-S7w" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="rWd-3r-bja"/>
                             <constraint firstItem="HDr-SR-t78" firstAttribute="top" secondItem="b7F-yE-S7w" secondAttribute="bottom" constant="15" id="rjS-rR-WHe"/>
                             <constraint firstItem="sEY-UK-Z5O" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="toh-FC-HBm"/>

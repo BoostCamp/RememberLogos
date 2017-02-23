@@ -8,8 +8,6 @@
 
 import UIKit
 
-let coursePlistName = "courses"
-
 class CourseVC: UITableViewController {
     
     var courses = [Course]()
@@ -17,23 +15,7 @@ class CourseVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let coursesURL = Bundle.main.url(forResource: coursePlistName, withExtension: "plist") else {
-            print("No Courses File URL")
-            return
-        }
-        
-        guard let coursesNSArray = NSArray(contentsOf: coursesURL) else {
-            print("Cannot convert To Array")
-            return
-        }
-        
-        courses = coursesNSArray.map({ (item : Any) -> Course in
-            guard let course = item as? [String:AnyObject] else {
-                print("잘못된 형식의 course data : \(item)")
-                return Course()
-            }
-            return Course(course: course)
-        })
+        self.courses = DataCenter.shared.courses
     }
     
     // delegate overriding - UITableViewDataSource
