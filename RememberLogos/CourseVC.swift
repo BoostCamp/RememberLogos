@@ -21,7 +21,7 @@ class CourseVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        self.courses = DataCenter.shared.courses
+        self.courses = DataController.shared.courses
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,40 +56,40 @@ class CourseVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 
                 let course = courses[indexPath.row]
                 
-                DataCenter.shared.currentCourse = course
+                DataController.shared.currentCourse = course
                 
                 recitationVC.messages = course.messages
                 recitationVC.course = course
-                recitationVC.courseResult = DataCenter.shared.getCourseResult(name: course.name)
+                recitationVC.courseResult = DataController.shared.getCourseResult(name: course.name)
             }
         }
         if (segue.identifier == "nextRecitation") {
-            if let recitationVC = segue.destination as? RecitationVC, let currentCourse = DataCenter.shared.currentCourse, let last = courses.last {
+            if let recitationVC = segue.destination as? RecitationVC, let currentCourse = DataController.shared.currentCourse, let last = courses.last {
 
                 if last.name == currentCourse.name, let first = courses.first{
-                    DataCenter.shared.currentCourse = first
+                    DataController.shared.currentCourse = first
                 } else if let curIndex = courses.index(where: { (course: Course) -> Bool in
                         return currentCourse.name == course.name ? true : false
                 }) {
-                    DataCenter.shared.currentCourse = courses[curIndex + 1]
+                    DataController.shared.currentCourse = courses[curIndex + 1]
                 }
                         
-                recitationVC.messages = DataCenter.shared.currentCourse.messages
-                recitationVC.course = DataCenter.shared.currentCourse
+                recitationVC.messages = DataController.shared.currentCourse.messages
+                recitationVC.course = DataController.shared.currentCourse
             }
         }
         if(segue.identifier == "showCurrentRecitation") {
-            if let recitationVC = segue.destination as? RecitationVC, let currentCourse = DataCenter.shared.currentCourse {
+            if let recitationVC = segue.destination as? RecitationVC, let currentCourse = DataController.shared.currentCourse {
                 
                 recitationVC.messages = currentCourse.messages
                 recitationVC.course = currentCourse
-                recitationVC.courseResult = DataCenter.shared.getCourseResult(name: currentCourse.name)
+                recitationVC.courseResult = DataController.shared.getCourseResult(name: currentCourse.name)
             }
         }
     }
     
     private func showCurrentCourseButton() {
-        if let currentCourse = DataCenter.shared.currentCourse {
+        if let currentCourse = DataController.shared.currentCourse {
             
             if let titleLabel = nextCourseButton.titleLabel {
                 titleLabel.textAlignment = .center

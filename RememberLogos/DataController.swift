@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DataCenter {
+class DataController {
     static let coursePlistName = "courses"
     
     private var _courses = [Course]()
@@ -17,8 +17,8 @@ class DataCenter {
     private var _currentCourse:Course!
     private var _currentMessage:Message!
 
-    private static var sharedDataCenter: DataCenter = {
-        let dataCenter = DataCenter()
+    private static var sharedDataController: DataController = {
+        let dataCenter = DataController()
         
         // Load Data - start
         dataCenter.loadCourses()
@@ -32,14 +32,14 @@ class DataCenter {
     
     private init() { }
     
-    class var shared : DataCenter {
+    class var shared : DataController {
         get {
-            return DataCenter.sharedDataCenter
+            return DataController.sharedDataController
         }
     }
     
     private func loadCourses() {
-        guard let coursesURL = Bundle.main.url(forResource: DataCenter.coursePlistName, withExtension: "plist") else {
+        guard let coursesURL = Bundle.main.url(forResource: DataController.coursePlistName, withExtension: "plist") else {
             print("No Courses File URL")
             return
         }
