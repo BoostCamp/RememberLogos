@@ -32,6 +32,7 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var courseResult: CourseResult!
     
     var recitaionStartTimer: Timer!
+    var recitaionEndTimer: Timer!
     
     // Naver Speech
     private let ClientID = "710CwSWlxkzXAQdSa6CV"
@@ -175,14 +176,21 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     public func recognizer(_ aRecognizer: NSKRecognizer!, didReceiveError aError: Error!) {
         print("Error: \(aError)")
         stopRecognizer()
-//        self.voiceTextView.text = Constants.inactiveText
     }
     
     func recognizer(_ aRecognizer: NSKRecognizer!, didReceive aResult: NSKRecognizedResult!) {
         if let result = aResult.results.first as? String {
+// For Test
 //            print("Final result: \(result)")
-            voiceTextView.text = result
-            compareMessage(aResult: result)
+            
+            if result.isEmpty {
+                voiceTextView.text = Constants.noResultText
+            } else {
+                voiceTextView.text = result
+                compareMessage(aResult: result)
+            }
+        } else {
+            voiceTextView.text = Constants.noResultText
         }
         
     }
@@ -194,15 +202,17 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         if (privResult == nil) || (aResult != privResult) {
 
             self.voiceTextView.text = aResult
+// For Performance
 //            compareMessage(aResult: aResult)
         }
+        
         privResult = aResult
         
     }
     
     public func recognizerDidEnterReady(_ aRecognizer: NSKRecognizer!) {
         print("Event occurred: Ready")
-        self.recitaionStartTimer = Timer(timeInterval: 1, target: self, selector: #selector(RecitationVC.onReady), userInfo: nil, repeats: false)
+        self.recitaionStartTimer = Timer(timeInterval: 1, target: self, selector: #selector(RecitationVC.onRecitationStart), userInfo: nil, repeats: false)
         RunLoop.main.add(self.recitaionStartTimer!, forMode: RunLoopMode.defaultRunLoopMode)
     }
     
@@ -216,14 +226,24 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         stopRecognizer()
     }
     
-    // recognizerStartTimer func
+    // Timer func
     
-    func onReady() {
+    func onRecitationStart() {
         playSound(path: startSoundPath)
         self.voiceTextView.text = Constants.defaultVoiceText
         
         if let updateTimer = recitaionStartTimer {
             updateTimer.invalidate()
+        }
+    }
+    
+    func onRecitationEnd() {
+        self.voiceTextView.text = Constants.inactiveText
+        self.voiceTextView.textColor = UIColor.darkGray
+        self.recitaionButton.isEnabled = true
+        
+        if let endTimer = recitaionEndTimer {
+            endTimer.invalidate()
         }
     }
     
@@ -240,8 +260,10 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 scoreBadge.text = "\(recitationResult.score)"
             }
             
+            
             if let ranges = result["ranges"] as? [NSRange] {
-                
+            
+                self.voiceTextView.textColor = UIColor.red
                 
                 if ranges.isEmpty {
                     playSound(path: noResultSoundPath)
@@ -254,7 +276,7 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                     let mutableAttrStr = NSMutableAttributedString(attributedString: self.voiceTextView.attributedText)
                     
                     ranges.forEach({ (range :NSRange) in
-                        mutableAttrStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: range)
+                        mutableAttrStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.blue, range: range)
                     })
                     
                     self.voiceTextView.attributedText = mutableAttrStr
@@ -266,6 +288,7 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             if (result["isVerseEnd"] as! Bool) {
                 changeVerse(targetIndex: currentVerse + 1)
             }
+            
         }
     }
     
@@ -351,10 +374,9 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     private func stopRecognizer() {
-        
+        self.recitaionEndTimer = Timer(timeInterval: 3, target: self, selector: #selector(RecitationVC.onRecitationEnd), userInfo: nil, repeats: false)
+        RunLoop.main.add(self.recitaionEndTimer!, forMode: RunLoopMode.defaultRunLoopMode)
         nskSpeechRecognizer.stop()
-        
-        recitaionButton.isEnabled = true
     }
     
     private func inactiveAudioSession() {
