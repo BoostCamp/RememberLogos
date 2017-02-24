@@ -23,9 +23,228 @@
 	</dict>
 	<dict>
 		<key>desc</key>
+		<string>갈라디아서 2:20</string>
+		<key>name</key>
+		<string>네비게이토 주제별 성경암송 - 새로운 삶 2</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>갈라디아서</string>
+				<key>verse</key>
+				<integer>2</integer>
+				<key>chapter</key>
+				<integer>20</integer>
+				<key>text</key>
+				<string>내가 그리스도와 함께 십자가에 못 박혔나니 그런즉 이제는 내가 사는 것이 아니요 오직 내 안에 그리스도께서 사시는 것이라 이제 내가 육체 가운데 사는 것은 나를 사랑하사 나를 위하여 자기 자신을 버리신 하나님의 아들을 믿는 믿음 안에서 사는 것이라</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>갈라디아서 2:20</string>
+		<key>name</key>
+		<string>네비게이토 주제별 성경암송 - 새로운 삶 3</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>갈라디아서</string>
+				<key>verse</key>
+				<integer>20</integer>
+				<key>chapter</key>
+				<integer>2</integer>
+				<key>text</key>
+				<string>내가 그리스도와 함께 십자가에 못 박혔나니 그런즉 이제는 내가 사는 것이 아니요 오직 내 안에 그리스도께서 사시는 것이라 이제 내가 육체 가운데 사는 것은 나를 사랑하사 나를 위하여 자기 자신을 버리신 하나님의 아들을 믿는 믿음 안에서 사는 것이라</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>로마서 12:1</string>
+		<key>name</key>
+		<string>네비게이토 주제별 성경암송 - 그리스도를 전파함 1</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>로마서</string>
+				<key>verse</key>
+				<integer>12</integer>
+				<key>chapter</key>
+				<integer>1</integer>
+				<key>text</key>
+				<string>모든 사람이 죄를 범하였으매 하나님의 영광에 이르지 못하더니</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>이사야 53:6</string>
+		<key>name</key>
+		<string>네비게이토 주제별 성경암송 - 그리스도를 전파함 2</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>이사야</string>
+				<key>verse</key>
+				<integer>6</integer>
+				<key>chapter</key>
+				<integer>53</integer>
+				<key>text</key>
+				<string>우리는 다 양 같아서 그릇 행하여 각기 제 길로 갔거늘 여호와께서는 우리 모두의 죄악을 그에게 담당시키셨도다</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>로마서 6:23</string>
+		<key>name</key>
+		<string>네비게이토 주제별 성경암송 - 그리스도를 전파함 3</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>로마서</string>
+				<key>verse</key>
+				<integer>23</integer>
+				<key>chapter</key>
+				<integer>6</integer>
+				<key>text</key>
+				<string>죄의 삯은 사망이요 하나님의 은사는 그리스도 예수 우리 주 안에 있는 영생이니라</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>고린도전서 3:16</string>
+		<key>name</key>
+		<string>네비게이토 주제별 성경암송 - 하나님을 의뢰함 1</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>고린도전서</string>
+				<key>verse</key>
+				<integer>16</integer>
+				<key>chapter</key>
+				<integer>3</integer>
+				<key>text</key>
+				<string>너희는 너희가 하나님의 성전인 것과 하나님의 성령이 너희 안에 계시는 것을 알지 못하느냐</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>고린도전서 2:12</string>
+		<key>name</key>
+		<string>네비게이토 주제별 성경암송 - 하나님을 의뢰함 2</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>고린도전서</string>
+				<key>verse</key>
+				<integer>12</integer>
+				<key>chapter</key>
+				<integer>2</integer>
+				<key>text</key>
+				<string>우리가 세상의 영을 받지 아니하고 오직 하나님으로부터 온 영을 받았으니 이는 우리로 하여금 하나님께서 우리에게 은혜로 주신 것들을 알게 하려 하심이라</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>이사야 41:10</string>
+		<key>name</key>
+		<string>네비게이토 주제별 성경암송 - 하나님을 의뢰함 3</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>이사야</string>
+				<key>verse</key>
+				<integer>41</integer>
+				<key>chapter</key>
+				<integer>10</integer>
+				<key>text</key>
+				<string>두려워하지 말라 내가 너와 함께 함이라 놀라지 말라 나는 네 하나님이 됨이라 내가 너를 굳세게 하리라 참으로 너를 도와 주리라 참으로 나의 의로운 오른손으로 너를 붙들리라</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>마태복음 6:33</string>
+		<key>name</key>
+		<string>네비게이토 주제별 성경암송 - 그리스도 제자의 자격 1</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>마태복음</string>
+				<key>verse</key>
+				<integer>33</integer>
+				<key>chapter</key>
+				<integer>6</integer>
+				<key>text</key>
+				<string>그런즉 너희는 먼저 그의 나라와 그의 의를 구하라 그리하면 이 모든 것을 너희에게 더하시리라</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>누가복음 9:23</string>
+		<key>name</key>
+		<string>네비게이토 주제별 성경암송 - 그리스도 제자의 자격 2</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>누가복음</string>
+				<key>verse</key>
+				<integer>9</integer>
+				<key>chapter</key>
+				<integer>23</integer>
+				<key>text</key>
+				<string>또 무리에게 이르시되 아무든지 나를 따라오려거든 자기를 부인하고 날마다 제 십자가를 지고 나를 따를 것이니라</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>요한일서 2:15~16</string>
+		<key>name</key>
+		<string>네비게이토 주제별 성경암송 - 그리스도 제자의 자격 3</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>요한일서</string>
+				<key>verse</key>
+				<integer>15</integer>
+				<key>chapter</key>
+				<integer>5</integer>
+				<key>text</key>
+				<string>이 세상이나 세상에 있는 것들을 사랑하지 말라 누구든지 세상을 사랑하면 아버지의 사랑이 그 안에 있지 아니하니</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>요한일서</string>
+				<key>verse</key>
+				<integer>16</integer>
+				<key>chapter</key>
+				<integer>5</integer>
+				<key>text</key>
+				<string>이는 세상에 있는 모든 것이 육신의 정욕과 안목의 정욕과 이생의 자랑이니 다 아버지께로부터 온 것이 아니요 세상으로부터 온 것이라</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>desc</key>
 		<string>시편 23:1~6</string>
 		<key>name</key>
-		<string>고급 1 단계 - 나의 목자</string>
+		<string>이슬비 성경 암송 노트 : 유니게 1 단계 - 나의 목자</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -94,7 +313,7 @@
 		<key>desc</key>
 		<string>신명기 6:4~9</string>
 		<key>name</key>
-		<string>초급 2 단계 - 이스라엘아 들으라</string>
+		<string>이슬비 성경 암송 노트 : 유니게 1 단계 - 이스라엘아 들으라</string>
 		<key>messages</key>
 		<array>
 			<dict>
