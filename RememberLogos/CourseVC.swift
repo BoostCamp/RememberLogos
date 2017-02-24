@@ -8,23 +8,33 @@
 
 import UIKit
 
-class CourseVC: UITableViewController {
+class CourseVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var courses = [Course]()
-
+    
+    @IBOutlet weak var tableView:UITableView!
+    @IBOutlet weak var nextCourseButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
         self.courses = DataCenter.shared.courses
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        showCurrentCourseButton()
+    }
+    
     // delegate overriding - UITableViewDataSource
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return courses.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath)
             
@@ -68,7 +78,44 @@ class CourseVC: UITableViewController {
                 recitationVC.course = DataCenter.shared.currentCourse
             }
         }
+        if(segue.identifier == "showCurrentRecitation") {
+            if let recitationVC = segue.destination as? RecitationVC, let currentCourse = DataCenter.shared.currentCourse {
+                
+                recitationVC.messages = currentCourse.messages
+                recitationVC.course = currentCourse
+                recitationVC.courseResult = DataCenter.shared.getCourseResult(name: currentCourse.name)
+            }
+        }
     }
- 
+    
+    private func showCurrentCourseButton() {
+        if let currentCourse = DataCenter.shared.currentCourse {
+            
+            if let titleLabel = nextCourseButton.titleLabel {
+                titleLabel.textAlignment = .center
+                titleLabel.numberOfLines = 0
+                titleLabel.lineBreakMode = .byWordWrapping
+            }
+            
+            let title = NSMutableAttributedString()
+            
+            let style = NSMutableParagraphStyle()
+            style.lineHeightMultiple = 1.5
+            style.alignment = .center
+            
+            let firstLine = NSAttributedString(string: "현재 진행중인 코스", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16), NSParagraphStyleAttributeName: style])
+            
+            let secondLine = NSAttributedString(string: "\n\(currentCourse.name)", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 10), NSParagraphStyleAttributeName: style])
+            
+            title.append(firstLine)
+            title.append(secondLine)
+            
+            nextCourseButton.setAttributedTitle(title, for: .normal)
+            self.view.bringSubview(toFront: nextCourseButton)
+        } else {
+            print("No currnet Courses")
+            nextCourseButton.isHidden = true
+        }
+    }
 
 }
