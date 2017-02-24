@@ -45,39 +45,39 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="CourseCell" rowHeight="90" id="yIK-qE-22G" customClass="CourseCell" customModule="RememberLogos" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10" width="375" height="90"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="CourseCell" id="yIK-qE-22G" customClass="CourseCell" customModule="RememberLogos" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="10" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yIK-qE-22G" id="Ncn-HX-6iC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="OZ6-qz-Use">
-                                                    <rect key="frame" x="8" y="6.5" width="359" height="75"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OZ6-qz-Use">
+                                                    <rect key="frame" x="8" y="8" width="359" height="83.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 목자" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQc-el-4qt" userLabel="courseName">
-                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="25"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 목자" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nQc-el-4qt" userLabel="courseName">
+                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="24.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여호와는 나의 목자시니 내게 부족함이 없으리로다 나로" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Fr-Ye-QqH" userLabel="summaryMessage">
-                                                            <rect key="frame" x="0.0" y="25" width="359" height="25"/>
+                                                            <rect key="frame" x="0.0" y="29.5" width="359" height="24.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="X2u-5h-EBv">
-                                                            <rect key="frame" x="0.0" y="50" width="359" height="25"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="X2u-5h-EBv">
+                                                            <rect key="frame" x="0.0" y="59" width="359" height="24.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시편 23:1~6" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31b-Xi-jWb" userLabel="desc">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="207" height="25"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="209" height="24.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tv-hW-YLk" userLabel="count" customClass="BadgeSwift" customModule="BadgeSwift">
-                                                                    <rect key="frame" x="218" y="0.0" width="65" height="25"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tv-hW-YLk" userLabel="count" customClass="BadgeSwift" customModule="BadgeSwift">
+                                                                    <rect key="frame" x="219" y="0.0" width="65" height="24.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
@@ -94,7 +94,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ng8-xw-kNR" userLabel="score" customClass="BadgeSwift" customModule="BadgeSwift">
-                                                                    <rect key="frame" x="294" y="0.0" width="65" height="25"/>
+                                                                    <rect key="frame" x="294" y="0.0" width="65" height="24.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="25" id="Il1-88-jpC"/>
                                                                         <constraint firstAttribute="width" constant="65" id="WCE-4Y-aoT"/>
@@ -124,6 +124,7 @@
                                             <constraints>
                                                 <constraint firstItem="OZ6-qz-Use" firstAttribute="leading" secondItem="Ncn-HX-6iC" secondAttribute="leadingMargin" id="fAB-ac-Kcv"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="OZ6-qz-Use" secondAttribute="trailing" id="iO4-qD-JXG"/>
+                                                <constraint firstItem="OZ6-qz-Use" firstAttribute="top" secondItem="Ncn-HX-6iC" secondAttribute="topMargin" id="nuQ-NB-rmm"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="OZ6-qz-Use" secondAttribute="bottom" id="zG4-N6-B8y"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -201,7 +202,7 @@
                                         <real key="value" value="13"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedBackgoundColor">
-                                        <color key="value" red="0.1960784314" green="0.7843137255" blue="0.82352941180000006" alpha="0.89699272259999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.19607843137254902" green="0.47058823529411764" blue="0.82352941176470584" alpha="0.89699272259999996" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundShapeColor">
                                         <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -222,10 +223,7 @@
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="badgeColor">
-                                        <color key="value" red="0.19607843137254902" green="0.78431372549019607" blue="0.82352941176470584" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.19607843137254902" green="0.78431372549019607" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.19607843137254902" green="0.82352941176470584" blue="0.5490196078431373" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="size" keyPath="insets">
                                         <size key="value" width="0.0" height="0.0"/>
@@ -250,7 +248,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZq-Mm-OEm" userLabel="Verse">
-                                                    <rect key="frame" x="8" y="0.0" width="20" height="8.5"/>
+                                                    <rect key="frame" x="8" y="0.0" width="20" height="8"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" placeholder="YES" id="0TP-Ey-vM9"/>
                                                     </constraints>
@@ -259,7 +257,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내가 사망의 음침한 골짜기로 다닐지라도 해를 두려워하지 않을 것은 주께서 나와 함께 하심이라 주의 지팡이와 막대기가 나를 안위하시나이다" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEx-ew-nYd" userLabel="Text" customClass="TTTAttributedLabel">
-                                                    <rect key="frame" x="8" y="13.5" width="335" height="154"/>
+                                                    <rect key="frame" x="8" y="13" width="335" height="154"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
