@@ -14,6 +14,7 @@ import BadgeSwift
 
 class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSKRecognizerDelegate, ABSteppedProgressBarDelegate {
     
+    // UI
     @IBOutlet weak var courseProgressBar: ABSteppedProgressBar!
     @IBOutlet weak var scoreBadge: BadgeSwift!
     @IBOutlet weak var messageTableView: UITableView!
@@ -24,13 +25,14 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var messages = [Message]()
     var course: Course!
     
-    
     // User Data
     var currentMessage: Message!
     var currentVerse: Int!
     var recitationResult = RecitationResult()
     var courseResult: CourseResult!
     
+    
+    // Timer
     var recitaionStartTimer: Timer!
     var recitaionEndTimer: Timer!
     
@@ -48,7 +50,6 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
 
     
     // controller init
-    
     required init?(coder aDecoder: NSCoder) {
         startSoundPath =  Bundle.main.path(forResource: "startRecitation", ofType: "wav")
         endSoundPath = Bundle.main.path(forResource: "endRecitation", ofType: "wav")
@@ -316,6 +317,9 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     private func showComplateCourse() {
+        
+        // update result data.
+        updateResultData()
     
         playSound(path: endCourseSoundPath)
         
@@ -395,6 +399,11 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         } catch {
             print("play start sound error")
         }
+    }
+    
+    private func updateResultData() {
+        
+    
     }
     
     @IBAction func startRecitation(_ sender: UIButton) {
