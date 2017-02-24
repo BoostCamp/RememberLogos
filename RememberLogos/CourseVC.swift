@@ -39,13 +39,20 @@ class CourseVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath)
         
-        let course = courses[indexPath.row]
-        let result = ResultDataController.shared.getCourseResult(name: course.name)
-        let totalScore = result.totalScore
-        let resultCount = result.resultCount
+        if let cell = cell as? CourseCell {
+            
+            let course = courses[indexPath.row]
+            let result = ResultDataController.shared.getCourseResult(name: course.name)
+            let totalScore = result.totalScore
+            let resultCount = result.resultCount
+            
+            cell.nameLable.text = course.name
+            cell.descLabel.text = course.desc
+            cell.totalScoreBadge.text = "\(totalScore)"
+            cell.resultCountBadge.text = "\(resultCount)"
+            cell.messageLabel.text = course.messages.first?.text
+        }
         
-        cell.textLabel?.text = course.name
-        cell.detailTextLabel?.text = course.desc + " score : \(totalScore), count : \(resultCount)"
         
         return cell
     }
