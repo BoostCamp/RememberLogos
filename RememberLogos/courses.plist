@@ -4,6 +4,25 @@
 <array>
 	<dict>
 		<key>desc</key>
+		<string>고린도후서 5:17</string>
+		<key>name</key>
+		<string>네비게이토 주제별 성경암송 - 새로운 삶 1</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>고린도후서</string>
+				<key>verse</key>
+				<integer>5</integer>
+				<key>chapter</key>
+				<integer>17</integer>
+				<key>text</key>
+				<string>그런즉 누구든지 그리스도 안에 있으면 새로운 피조물이라. 이전 것은 지나갔으니, 보라 새것이 되었도다.</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>desc</key>
 		<string>시편 23:1~6</string>
 		<key>name</key>
 		<string>고급 1 단계 - 나의 목자</string>
@@ -174,7 +193,7 @@
 				<key>chapter</key>
 				<integer>1</integer>
 				<key>text</key>
-				<string>안녕</string>
+				<string>안녕    안녕</string>
 			</dict>
 			<dict>
 				<key>book</key>

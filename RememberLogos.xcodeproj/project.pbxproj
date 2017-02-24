@@ -122,6 +122,7 @@
 		5AE622FB1E5416F2002C9E13 /* RememberLogos */ = {
 			isa = PBXGroup;
 			children = (
+				5AF7144D1E60170A001F6D12 /* dataController */,
 				5AEAC5031E56BD170020BD52 /* resource */,
 				5AE623141E542A5C002C9E13 /* controller */,
 				5AE623131E542A58002C9E13 /* model */,
@@ -159,10 +160,8 @@
 		5AE623141E542A5C002C9E13 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				5A4329CC1E5DABB900A849FE /* ResultDataController.swift */,
 				5AE623191E542B5B002C9E13 /* RecitationVC.swift */,
 				5A9364821E5454DC007D8AC4 /* CourseVC.swift */,
-				5AF7144B1E6010E0001F6D12 /* ContentDataController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -179,6 +178,15 @@
 				5AEAC5041E56BD320020BD52 /* courses.plist */,
 			);
 			name = resource;
+			sourceTree = "<group>";
+		};
+		5AF7144D1E60170A001F6D12 /* dataController */ = {
+			isa = PBXGroup;
+			children = (
+				5A4329CC1E5DABB900A849FE /* ResultDataController.swift */,
+				5AF7144B1E6010E0001F6D12 /* ContentDataController.swift */,
+			);
+			name = dataController;
 			sourceTree = "<group>";
 		};
 		61FB0AE0077909B502F0E71F /* Pods */ = {

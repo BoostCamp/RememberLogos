@@ -45,9 +45,10 @@ class MessageCell: UITableViewCell {
     private func blankText(_ text: String) {
         
         text.enumerateSubstrings(in: (text.startIndex..<text.endIndex), options: String.EnumerationOptions.byWords) { (substring: String?, substringRange  : Range<String.Index>, enclosingRange: Range<String.Index>, false) in
-            if let substring = substring, !(substring.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty) {
-                    
-                self._hiddenRanges.append(NSMakeRange(text.distance(from: text.startIndex, to: enclosingRange.lowerBound), text.distance(from: enclosingRange.lowerBound, to: enclosingRange.upperBound)))
+
+            if let substring = substring, substring.trimmingCharacters(in: CharacterSet.alphanumerics).isEmpty {
+                
+                self._hiddenRanges.append(NSMakeRange(text.distance(from: text.startIndex, to: substringRange.lowerBound), text.distance(from: substringRange.lowerBound, to: substringRange.upperBound)))
                 
             }
         }
@@ -82,23 +83,17 @@ class MessageCell: UITableViewCell {
             for (index, ch) in aResult.characters.enumerated() {
                 
                 // for Debug
-                print("voice: \(ch), message: \(text[currentIndex])")
-                print("messageIndex:\(currentIndex), message.endIndex: \(text.endIndex)")
-                while text[currentIndex] == " " {
-                    currentIndex = text.index(after: currentIndex)
-                }
-                
+//                print("voice: \(ch), message: \(text[currentIndex])")
+//                print("messageIndex:\(currentIndex), message.endIndex: \(text.endIndex)")
                 
                 if ch == text[currentIndex] {
                     
                     isChanged = true
                     
                     if let lastRange = correspondIndexes.last, NSMaxRange(lastRange) == index{
-//                        print("last1 : \(lastRange)\n \(index)")
                         let _ = correspondIndexes.popLast()
                         correspondIndexes.append(NSMakeRange(lastRange.location, lastRange.length + 1))
                     } else {
-//                        print("last2 : \(index)\n")
                         correspondIndexes.append(NSMakeRange(index, 1))
                     }
                     
@@ -109,7 +104,14 @@ class MessageCell: UITableViewCell {
                     }
                     
                 }
-
+                
+                while text[currentIndex] == " " || text[currentIndex] == "," || text[currentIndex] == "."{
+                    currentIndex = text.index(after: currentIndex)
+                    if currentIndex == text.endIndex {
+                        isVerseEnd = true
+                        break
+                    }
+                }
                 
             }
             

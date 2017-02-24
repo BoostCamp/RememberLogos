@@ -378,7 +378,7 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     private func stopRecognizer() {
-        self.recitaionEndTimer = Timer(timeInterval: 3, target: self, selector: #selector(RecitationVC.onRecitationEnd), userInfo: nil, repeats: false)
+        self.recitaionEndTimer = Timer(timeInterval: 2, target: self, selector: #selector(RecitationVC.onRecitationEnd), userInfo: nil, repeats: false)
         RunLoop.main.add(self.recitaionEndTimer!, forMode: RunLoopMode.defaultRunLoopMode)
         nskSpeechRecognizer.stop()
     }
