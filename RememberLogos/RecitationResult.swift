@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RecitationResult {
+class RecitationResult : NSObject, NSCoding {
     
     static let correctPointWeight = 20
     static let hintPointWeight = 5
@@ -19,14 +19,25 @@ class RecitationResult {
     private var _wrong:Int = 0
     private var _date:Date = Date()
     
-    init(correct:Int, hint:Int, wrong:Int) {
-        _correct = correct
-        _hint = hint
-        _wrong = wrong
+    override init() {
+        
     }
     
-    init() {
+    required init?(coder aDecoder: NSCoder) {
         
+        self._correct = aDecoder.decodeInteger(forKey: "correct")
+        self._hint = aDecoder.decodeInteger(forKey: "hint")
+        self._wrong = aDecoder.decodeInteger(forKey: "wrong")
+        self._date = aDecoder.decodeObject(forKey: "date") as! Date
+        
+        super.init()
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(_correct, forKey: "correct")
+        aCoder.encode(_hint, forKey: "hint")
+        aCoder.encode(_wrong, forKey: "wrong")
+        aCoder.encode(_date, forKey: "date")
     }
     
     var score:Int {
@@ -55,6 +66,15 @@ class RecitationResult {
     var wrong:Int {
         get {
             return _wrong
+        }
+    }
+    
+    var date:Date {
+        get {
+            return _date
+        }
+        set {
+            _date = newValue
         }
     }
     

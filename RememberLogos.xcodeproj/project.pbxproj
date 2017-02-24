@@ -27,6 +27,7 @@
 		5AE623181E542AC9002C9E13 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE623171E542AC9002C9E13 /* MessageCell.swift */; };
 		5AE6231A1E542B5B002C9E13 /* RecitationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE623191E542B5B002C9E13 /* RecitationVC.swift */; };
 		5AE6231C1E542BD3002C9E13 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE6231B1E542BD3002C9E13 /* Constants.swift */; };
+		5AE727FE1E605A8E00F78A20 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE727FD1E605A8E00F78A20 /* CourseCell.swift */; };
 		5AEA66C01E5C2C9F00F0F863 /* startRecitation.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5AEA66BE1E5C2C9F00F0F863 /* startRecitation.wav */; };
 		5AEA66C11E5C2C9F00F0F863 /* endRecitation.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5AEA66BF1E5C2C9F00F0F863 /* endRecitation.wav */; };
 		5AEAC5051E56BD320020BD52 /* courses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AEAC5041E56BD320020BD52 /* courses.plist */; };
@@ -69,6 +70,7 @@
 		5AE623171E542AC9002C9E13 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		5AE623191E542B5B002C9E13 /* RecitationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecitationVC.swift; sourceTree = "<group>"; };
 		5AE6231B1E542BD3002C9E13 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5AE727FD1E605A8E00F78A20 /* CourseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
 		5AEA66BE1E5C2C9F00F0F863 /* startRecitation.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = startRecitation.wav; sourceTree = "<group>"; };
 		5AEA66BF1E5C2C9F00F0F863 /* endRecitation.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = endRecitation.wav; sourceTree = "<group>"; };
 		5AEAC5041E56BD320020BD52 /* courses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = courses.plist; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				5AE623171E542AC9002C9E13 /* MessageCell.swift */,
+				5AE727FD1E605A8E00F78A20 /* CourseCell.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				5A9364851E54555E007D8AC4 /* Course.swift in Sources */,
 				5A4329CD1E5DABB900A849FE /* ResultDataController.swift in Sources */,
 				5A4329C51E5DA0B700A849FE /* RecitationResult.swift in Sources */,
+				5AE727FE1E605A8E00F78A20 /* CourseCell.swift in Sources */,
 				5A4329C91E5DA6A800A849FE /* CourseResult.swift in Sources */,
 				5A9364831E5454DC007D8AC4 /* CourseVC.swift in Sources */,
 				5AE623161E542AA0002C9E13 /* Message.swift in Sources */,

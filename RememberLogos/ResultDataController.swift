@@ -12,13 +12,12 @@ class ResultDataController {
     
     private var _courseResults = [CourseResult]()
     private var _currentCourse:Course!
-    private var _currentMessage:Message!
 
     private static var sharedDataController: ResultDataController = {
         let dataCenter = ResultDataController()
         // Load Data - start
         
-        loadCurrentCourse(dataCenter)
+        loadAll(dataCenter)
         
         // Load Data - end
         return dataCenter
@@ -38,16 +37,7 @@ class ResultDataController {
         }
         set {
             _currentCourse = newValue
-            save()
-        }
-    }
-    
-    var currentMessage:Message {
-        get {
-            return _currentMessage
-        }
-        set {
-            _currentMessage = newValue
+            saveCurrentCourse()
         }
     }
     
@@ -57,37 +47,51 @@ class ResultDataController {
         }
     }
     
-    func getCourseResult(index : Int) -> CourseResult! {
-        guard index >= _courseResults.count else {
-            return nil
-        }
-        return _courseResults[index]
-    }
-    
-    func getCourseResult(name : String) -> CourseResult! {
+    func getCourseResult(name : String) -> CourseResult {
         for result in _courseResults {
-            if result._courseName == name {
+            if result.courseName == name {
                 return result
             }
         }
-        return nil
+        
+        return ResultDataController.shared.createCourseResult(courseName: name)
     }
     
-    func createCourseResult(result : CourseResult) {
-        _courseResults.append(result)
+    func loadAll() {
+        
+        if let data = UserDefaults.standard.data(forKey: "courseResults") as Data?, let courseResults = NSKeyedUnarchiver.unarchiveObject(with: data) as? [CourseResult] {
+            _courseResults = courseResults
+        }
     }
     
-    func save()  {
-//        UserDefaults.standard.setValue(_courseResults, forKey: "courseResult")
+    func saveAll()  {
+        let mutable = NSKeyedArchiver.archivedData(withRootObject: _courseResults)
+        UserDefaults.standard.setValue(mutable, forKey: "courseResults")
         UserDefaults.standard.setValue(_currentCourse.name, forKey: "currentCourseName")
-//        UserDefaults.standard.setValue(_currentMessage, forKey: "currentMessage")
     }
     
-    private static func loadCurrentCourse(_ dataCenter: ResultDataController) {
+    
+    func saveCurrentCourse()  {
+        UserDefaults.standard.setValue(_currentCourse.name, forKey: "currentCourseName")
+    }
+    
+    private func createCourseResult(courseName: String) -> CourseResult {
+        let courseResult = CourseResult(courseName: courseName)
+        _courseResults.append(courseResult)
+        
+        return courseResult
+    }
+    
+    
+    private static func loadAll(_ dataCenter: ResultDataController) {
         if let currentCourseName = UserDefaults.standard.string(forKey: "currentCourseName"), let currentCourse = ContentDataController.shared.getCourse(name : currentCourseName) {
             
             dataCenter._currentCourse = currentCourse
             
+        }
+        
+        if let data = UserDefaults.standard.data(forKey: "courseResults") as Data?, let courseResults = NSKeyedUnarchiver.unarchiveObject(with: data) as? [CourseResult]{
+            dataCenter._courseResults = courseResults
         }
     }
     

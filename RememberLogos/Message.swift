@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Message {
+class Message :Hashable{
     
     private var _book: String!
     private var _chapter: Int!
@@ -42,5 +42,15 @@ class Message {
     }
     var text: String {
         return _text
+    }
+    
+    static func == (lhs: Message, rhs: Message) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
+    var hashValue: Int {
+        get {
+            return _book.hashValue + _chapter + _verse
+        }
     }
 }

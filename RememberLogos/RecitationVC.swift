@@ -26,11 +26,10 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var course: Course!
     
     // User Data
-    var currentMessage: Message!
     var currentVerse: Int!
-    var recitationResult = RecitationResult()
-    var courseResult: CourseResult!
     
+    var recitationResults = [Message: RecitationResult]()
+    var currentResult = RecitationResult()
     
     // Timer
     var recitaionStartTimer: Timer!
@@ -68,6 +67,7 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // init UI
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
         self.messageTableView.estimatedRowHeight = 180
@@ -77,10 +77,6 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         self.navigationItem.title = course.desc
         self.navigationItem.prompt = course.name
-        
-        self.currentVerse = 0
-        self.currentMessage = course.messages[currentVerse]
-        
         
         if self.messages.count < 2 {
             courseProgressBar.isHidden = true
@@ -92,7 +88,11 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             courseProgressBar.currentIndex = 0
         }
         
-        scoreBadge.text = "\(0)"
+        // init Data
+        self.currentVerse = 0
+        
+        createResultData()
+        updateScoreBadge()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -149,6 +149,8 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             
             skipActionSheetController.addAction(UIAlertAction(title: "예", style: .destructive) { (action: UIAlertAction!) in
                 self.changeVerse(targetIndex:index)
+                self.createResultData()
+                self.updateScoreBadge()
             })
             
             skipActionSheetController.addAction(UIAlertAction(title: "아니요", style: .cancel) { (action: UIAlertAction!) in
@@ -257,8 +259,8 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             let result = cell.compareMessage(aResult: aResult)
             
             if let correctCount = result["correctCount"] as? Int {
-                recitationResult.increseCorrect(correctCount)
-                scoreBadge.text = "\(recitationResult.score)"
+                currentResult.increseCorrect(correctCount)
+                updateScoreBadge()
             }
             
             
@@ -268,8 +270,8 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 
                 if ranges.isEmpty {
                     playSound(path: noResultSoundPath)
-                    self.recitationResult.increseWrong()
-                    self.scoreBadge.text = "\(self.recitationResult.score)"
+                    currentResult.increseWrong()
+                    updateScoreBadge()
 
                 } else {
                     playSound(path: resultSoundPath)
@@ -287,7 +289,9 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             }
             
             if (result["isVerseEnd"] as! Bool) {
+                appendResultData()
                 changeVerse(targetIndex: currentVerse + 1)
+                createResultData()
             }
             
         }
@@ -310,16 +314,17 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             currentVerse = targetIndex
             courseProgressBar.currentIndex = targetIndex
             selectMessage(row: targetIndex)
+            
         } else {
+            // update result data.
+            saveResultDataToController()
             showComplateCourse()
         }
         
     }
     
+    
     private func showComplateCourse() {
-        
-        // update result data.
-        updateResultData()
     
         playSound(path: endCourseSoundPath)
         
@@ -401,9 +406,26 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
     }
     
-    private func updateResultData() {
-        
+    private func updateScoreBadge() {
+        let totalScore = recitationResults.reduce(0) { total, item in total + item.value.score } + currentResult.score
+        self.scoreBadge.text = "\(totalScore)"
+    }
     
+    private func createResultData() {
+        currentResult = RecitationResult()
+    }
+    
+    private func appendResultData() {
+        let currentMessage = messages[currentVerse]
+        recitationResults.updateValue(currentResult, forKey: currentMessage)
+    }
+    
+    private func saveResultDataToController() {
+
+        let courseResult = ResultDataController.shared.getCourseResult(name: course.name)
+        courseResult.updateOneSession(recitationResults)
+        ResultDataController.shared.saveAll()
+        
     }
     
     @IBAction func startRecitation(_ sender: UIButton) {
@@ -446,8 +468,8 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             
             }
             
-            self.recitationResult.increseHint()
-            self.scoreBadge.text = "\(self.recitationResult.score)"
+            self.currentResult.increseHint()
+            self.updateScoreBadge()
             
             }
         )

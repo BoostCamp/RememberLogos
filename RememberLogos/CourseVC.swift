@@ -26,6 +26,7 @@ class CourseVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         showCurrentCourseButton()
+        tableView.reloadData()
     }
     
     // delegate overriding - UITableViewDataSource
@@ -37,11 +38,15 @@ class CourseVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath)
-            
+        
         let course = courses[indexPath.row]
+        let result = ResultDataController.shared.getCourseResult(name: course.name)
+        let totalScore = result.totalScore
+        let resultCount = result.resultCount
+        
         cell.textLabel?.text = course.name
-        cell.detailTextLabel?.text = course.desc
-            
+        cell.detailTextLabel?.text = course.desc + " score : \(totalScore), count : \(resultCount)"
+        
         return cell
     }
 
@@ -60,7 +65,6 @@ class CourseVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 
                 recitationVC.messages = course.messages
                 recitationVC.course = course
-                recitationVC.courseResult = ResultDataController.shared.getCourseResult(name: course.name)
             }
         }
         if (segue.identifier == "nextRecitation") {
@@ -73,9 +77,11 @@ class CourseVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 }) {
                     ResultDataController.shared.currentCourse = courses[curIndex + 1]
                 }
-                        
-                recitationVC.messages = ResultDataController.shared.currentCourse.messages
-                recitationVC.course = ResultDataController.shared.currentCourse
+                
+                if let currentCourse = ResultDataController.shared.currentCourse {
+                    recitationVC.messages = currentCourse.messages
+                    recitationVC.course = currentCourse
+                }
             }
         }
         if(segue.identifier == "showCurrentRecitation") {
@@ -83,7 +89,6 @@ class CourseVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 
                 recitationVC.messages = currentCourse.messages
                 recitationVC.course = currentCourse
-                recitationVC.courseResult = ResultDataController.shared.getCourseResult(name: currentCourse.name)
             }
         }
     }
@@ -100,12 +105,12 @@ class CourseVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             let title = NSMutableAttributedString()
             
             let style = NSMutableParagraphStyle()
-            style.lineHeightMultiple = 1.5
+            style.lineHeightMultiple = 1.3
             style.alignment = .center
             
-            let firstLine = NSAttributedString(string: "현재 진행중인 코스", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16), NSParagraphStyleAttributeName: style])
+            let firstLine = NSAttributedString(string: "현재 진행중인 코스", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 18), NSParagraphStyleAttributeName: style])
             
-            let secondLine = NSAttributedString(string: "\n\(currentCourse.name)", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 10), NSParagraphStyleAttributeName: style])
+            let secondLine = NSAttributedString(string: "\n\(currentCourse.name)", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 12,weight: 1), NSParagraphStyleAttributeName: style])
             
             title.append(firstLine)
             title.append(secondLine)
