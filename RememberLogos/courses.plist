@@ -6,7 +6,7 @@
 		<key>desc</key>
 		<string>고린도후서 5:17</string>
 		<key>name</key>
-		<string>중심되신 그리스도 1</string>
+		<string>새로운 피조물</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -25,7 +25,7 @@
 		<key>desc</key>
 		<string>갈라디아서 2:20</string>
 		<key>name</key>
-		<string>중심되신 그리스도 2</string>
+		<string>중심되신 그리스도</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -44,7 +44,7 @@
 		<key>desc</key>
 		<string>로마서 12:1</string>
 		<key>name</key>
-		<string>그리스도께 순종 1</string>
+		<string>그리스도께 순종</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -61,28 +61,9 @@
 	</dict>
 	<dict>
 		<key>desc</key>
-		<string>요한복음 14:21</string>
-		<key>name</key>
-		<string>그리스도께 순종 2</string>
-		<key>messages</key>
-		<array>
-			<dict>
-				<key>book</key>
-				<string>요한복음</string>
-				<key>verse</key>
-				<integer>21</integer>
-				<key>chapter</key>
-				<integer>14</integer>
-				<key>text</key>
-				<string>나의 계명을 지키는 자라야 나를 사랑하는 자니 나를 사랑하는 자는 내 아버지께 사랑을 받을 것이요 나도 그를 사랑하여 그에게 나를 나타내리라</string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>desc</key>
 		<string>디모데후서 3:16</string>
 		<key>name</key>
-		<string>말씀 1</string>
+		<string>말씀</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -99,47 +80,9 @@
 	</dict>
 	<dict>
 		<key>desc</key>
-		<string>여호수아 1:8</string>
-		<key>name</key>
-		<string>말씀 2</string>
-		<key>messages</key>
-		<array>
-			<dict>
-				<key>book</key>
-				<string>여호수아</string>
-				<key>verse</key>
-				<integer>8</integer>
-				<key>chapter</key>
-				<integer>1</integer>
-				<key>text</key>
-				<string>이 율법책을 네 입에서 떠나지 말게 하며 주야로 그것을 묵상하여 그 안에 기록된 대로 다 지켜 행하라 그리하면 네 길이 평탄하게 될 것이며 네가 형통하리라</string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>desc</key>
-		<string>요한복음 15:7</string>
-		<key>name</key>
-		<string>기도 1</string>
-		<key>messages</key>
-		<array>
-			<dict>
-				<key>book</key>
-				<string>요한복음</string>
-				<key>verse</key>
-				<integer>7</integer>
-				<key>chapter</key>
-				<integer>15</integer>
-				<key>text</key>
-				<string>너희가 내 안에 거하고 내 말이 너희 안에 거하면 무엇이든지 원하는 대로 구하라 그리하면 이루리라</string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>desc</key>
 		<string>빌립보서 4:6~7</string>
 		<key>name</key>
-		<string>기도 2</string>
+		<string>기도</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -166,28 +109,9 @@
 	</dict>
 	<dict>
 		<key>desc</key>
-		<string>마태복음 18:20</string>
-		<key>name</key>
-		<string>교제 1</string>
-		<key>messages</key>
-		<array>
-			<dict>
-				<key>book</key>
-				<string>마태복음</string>
-				<key>verse</key>
-				<integer>20</integer>
-				<key>chapter</key>
-				<integer>18</integer>
-				<key>text</key>
-				<string>두세 사람이 내 이름으로 모인 곳에는 나도 그들 중에 있느니라</string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>desc</key>
 		<string>히브리서 10:24~25</string>
 		<key>name</key>
-		<string>교제 2</string>
+		<string>교제</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -214,28 +138,9 @@
 	</dict>
 	<dict>
 		<key>desc</key>
-		<string>마태복음 4:19</string>
-		<key>name</key>
-		<string>증거 1</string>
-		<key>messages</key>
-		<array>
-			<dict>
-				<key>book</key>
-				<string>마태복음</string>
-				<key>verse</key>
-				<integer>19</integer>
-				<key>chapter</key>
-				<integer>4</integer>
-				<key>text</key>
-				<string>말씀하시되 나를 따라오라 내가 너희를 사람을 낚는 어부가 되게 하리라 하시니</string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>desc</key>
 		<string>로마서 1:16</string>
 		<key>name</key>
-		<string>증거 2</string>
+		<string>증거</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -252,9 +157,9 @@
 	</dict>
 	<dict>
 		<key>desc</key>
-		<string>로마서 3:23</string>
+		<string>로마서 3:23~24</string>
 		<key>name</key>
-		<string>모든 사람이 죄를 범함 1</string>
+		<string>그리스도의 속량</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -267,13 +172,23 @@
 				<key>text</key>
 				<string>모든 사람이 죄를 범하였으매 하나님의 영광에 이르지 못하더니</string>
 			</dict>
+			<dict>
+				<key>book</key>
+				<string>로마서</string>
+				<key>verse</key>
+				<integer>24</integer>
+				<key>chapter</key>
+				<integer>3</integer>
+				<key>text</key>
+				<string>그리스도 예수 안에 있는 속량으로 말미암아 하나님의 은혜로 값 없이 의롭다 하심을 얻은 자 되었느니라</string>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>desc</key>
 		<string>이사야 53:6</string>
 		<key>name</key>
-		<string>모든 사람이 죄를 범함 2</string>
+		<string>모든 사람이 죄를 범함</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -292,7 +207,7 @@
 		<key>desc</key>
 		<string>로마서 6:23</string>
 		<key>name</key>
-		<string>죄의 형벌 1</string>
+		<string>죄의 형벌</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -309,28 +224,9 @@
 	</dict>
 	<dict>
 		<key>desc</key>
-		<string>히브리서 9:27</string>
-		<key>name</key>
-		<string>죄의 형벌 2</string>
-		<key>messages</key>
-		<array>
-			<dict>
-				<key>book</key>
-				<string>히브리서</string>
-				<key>verse</key>
-				<integer>27</integer>
-				<key>chapter</key>
-				<integer>9</integer>
-				<key>text</key>
-				<string>한번 죽는 것은 사람에게 정해진 것이요 그 후에는 심판이 있으리니</string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>desc</key>
 		<string>고린도전서 3:16</string>
 		<key>name</key>
-		<string>성령 1</string>
+		<string>성령</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -347,47 +243,9 @@
 	</dict>
 	<dict>
 		<key>desc</key>
-		<string>고린도전서 2:12</string>
-		<key>name</key>
-		<string>성령 2</string>
-		<key>messages</key>
-		<array>
-			<dict>
-				<key>book</key>
-				<string>고린도전서</string>
-				<key>verse</key>
-				<integer>12</integer>
-				<key>chapter</key>
-				<integer>2</integer>
-				<key>text</key>
-				<string>우리가 세상의 영을 받지 아니하고 오직 하나님으로부터 온 영을 받았으니 이는 우리로 하여금 하나님께서 우리에게 은혜로 주신 것들을 알게 하려 하심이라</string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>desc</key>
-		<string>이사야 41:10</string>
-		<key>name</key>
-		<string>능력 1</string>
-		<key>messages</key>
-		<array>
-			<dict>
-				<key>book</key>
-				<string>이사야</string>
-				<key>verse</key>
-				<integer>41</integer>
-				<key>chapter</key>
-				<integer>10</integer>
-				<key>text</key>
-				<string>두려워하지 말라 내가 너와 함께 함이라 놀라지 말라 나는 네 하나님이 됨이라 내가 너를 굳세게 하리라 참으로 너를 도와 주리라 참으로 나의 의로운 오른손으로 너를 붙들리라</string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>desc</key>
 		<string>빌립보서 4:13</string>
 		<key>name</key>
-		<string>능력 2</string>
+		<string>능력</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -404,9 +262,57 @@
 	</dict>
 	<dict>
 		<key>desc</key>
+		<string>이사야 26:3</string>
+		<key>name</key>
+		<string>평안</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>이사야</string>
+				<key>verse</key>
+				<integer>3</integer>
+				<key>chapter</key>
+				<integer>26</integer>
+				<key>text</key>
+				<string>주께서 심지가 견고한 자를 평강하고 평강하도록 지키시리니 이는 그가 주를 신뢰함이니이다</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>요한복음 13:34~35</string>
+		<key>name</key>
+		<string>사랑</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>요한복음</string>
+				<key>verse</key>
+				<integer>34</integer>
+				<key>chapter</key>
+				<integer>13</integer>
+				<key>text</key>
+				<string>새 계명을 너희에게 주노니 서로 사랑하라 내가 너희를 사랑한 것 같이 너희도 서로 사랑하라</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>요한복음</string>
+				<key>verse</key>
+				<integer>35</integer>
+				<key>chapter</key>
+				<integer>13</integer>
+				<key>text</key>
+				<string>너희가 서로 사랑하면 이로써 모든 사람이 너희가 내 제자인 줄 알리라</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>desc</key>
 		<string>마태복음 6:33</string>
 		<key>name</key>
-		<string>그리스도를 첫자리에 모심 1</string>
+		<string>그리스도를 첫자리에 모심</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -418,25 +324,6 @@
 				<integer>6</integer>
 				<key>text</key>
 				<string>그런즉 너희는 먼저 그의 나라와 그의 의를 구하라 그리하면 이 모든 것을 너희에게 더하시리라</string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>desc</key>
-		<string>누가복음 9:23</string>
-		<key>name</key>
-		<string>그리스도를 첫자리에 모심 2</string>
-		<key>messages</key>
-		<array>
-			<dict>
-				<key>book</key>
-				<string>누가복음</string>
-				<key>verse</key>
-				<integer>9</integer>
-				<key>chapter</key>
-				<integer>23</integer>
-				<key>text</key>
-				<string>또 무리에게 이르시되 아무든지 나를 따라오려거든 자기를 부인하고 날마다 제 십자가를 지고 나를 따를 것이니라</string>
 			</dict>
 		</array>
 	</dict>
