@@ -6,7 +6,7 @@
 		<key>desc</key>
 		<string>고린도후서 5:17</string>
 		<key>name</key>
-		<string>새로운 삶 : 중심되신 그리스도 1</string>
+		<string>중심되신 그리스도 1</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -25,7 +25,7 @@
 		<key>desc</key>
 		<string>갈라디아서 2:20</string>
 		<key>name</key>
-		<string>새로운 삶 : 중심되신 그리스도 2</string>
+		<string>중심되신 그리스도 2</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -44,7 +44,7 @@
 		<key>desc</key>
 		<string>로마서 12:1</string>
 		<key>name</key>
-		<string>새로운 삶 : 그리스도께 순종 1</string>
+		<string>그리스도께 순종 1</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -63,7 +63,7 @@
 		<key>desc</key>
 		<string>요한복음 14:21</string>
 		<key>name</key>
-		<string>새로운 삶 : 그리스도께 순종 2</string>
+		<string>그리스도께 순종 2</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -82,7 +82,7 @@
 		<key>desc</key>
 		<string>디모데후서 3:16</string>
 		<key>name</key>
-		<string>새로운 삶 : 말씀 1</string>
+		<string>말씀 1</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -101,7 +101,7 @@
 		<key>desc</key>
 		<string>여호수아 1:8</string>
 		<key>name</key>
-		<string>새로운 삶 : 말씀 2</string>
+		<string>말씀 2</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -120,7 +120,7 @@
 		<key>desc</key>
 		<string>요한복음 15:7</string>
 		<key>name</key>
-		<string>새로운 삶 : 기도 1</string>
+		<string>기도 1</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -139,7 +139,7 @@
 		<key>desc</key>
 		<string>빌립보서 4:6~7</string>
 		<key>name</key>
-		<string>새로운 삶 : 기도 2</string>
+		<string>기도 2</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -168,7 +168,7 @@
 		<key>desc</key>
 		<string>마태복음 18:20</string>
 		<key>name</key>
-		<string>새로운 삶 : 교제 1</string>
+		<string>교제 1</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -187,7 +187,7 @@
 		<key>desc</key>
 		<string>히브리서 10:24~25</string>
 		<key>name</key>
-		<string>새로운 삶 : 교제 2</string>
+		<string>교제 2</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -216,7 +216,7 @@
 		<key>desc</key>
 		<string>마태복음 4:19</string>
 		<key>name</key>
-		<string>새로운 삶 : 증거 1</string>
+		<string>증거 1</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -235,7 +235,7 @@
 		<key>desc</key>
 		<string>로마서 1:16</string>
 		<key>name</key>
-		<string>새로운 삶 : 증거 2</string>
+		<string>증거 2</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -254,7 +254,7 @@
 		<key>desc</key>
 		<string>로마서 3:23</string>
 		<key>name</key>
-		<string>그리스도를 전파함 : 모든 사람이 죄를 범함 1</string>
+		<string>모든 사람이 죄를 범함 1</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -273,7 +273,7 @@
 		<key>desc</key>
 		<string>이사야 53:6</string>
 		<key>name</key>
-		<string>그리스도를 전파함 : 모든 사람이 죄를 범함 2</string>
+		<string>모든 사람이 죄를 범함 2</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -292,7 +292,7 @@
 		<key>desc</key>
 		<string>로마서 6:23</string>
 		<key>name</key>
-		<string>그리스도를 전파함 : 죄의 형벌 1</string>
+		<string>죄의 형벌 1</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -311,7 +311,7 @@
 		<key>desc</key>
 		<string>히브리서 9:27</string>
 		<key>name</key>
-		<string>그리스도를 전파함 : 죄의 형벌 2</string>
+		<string>죄의 형벌 2</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -330,7 +330,7 @@
 		<key>desc</key>
 		<string>고린도전서 3:16</string>
 		<key>name</key>
-		<string>하나님을 의뢰함 : 성령 1</string>
+		<string>성령 1</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -349,7 +349,7 @@
 		<key>desc</key>
 		<string>고린도전서 2:12</string>
 		<key>name</key>
-		<string>하나님을 의뢰함 : 성령 2</string>
+		<string>성령 2</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -368,7 +368,7 @@
 		<key>desc</key>
 		<string>이사야 41:10</string>
 		<key>name</key>
-		<string>하나님을 의뢰함 : 능력 1</string>
+		<string>능력 1</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -387,7 +387,7 @@
 		<key>desc</key>
 		<string>빌립보서 4:13</string>
 		<key>name</key>
-		<string>하나님을 의뢰함 : 능력 2</string>
+		<string>능력 2</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -406,7 +406,7 @@
 		<key>desc</key>
 		<string>마태복음 6:33</string>
 		<key>name</key>
-		<string>그리스도 제자의 자격 : 그리스도를 첫자리에 모심 1</string>
+		<string>그리스도를 첫자리에 모심 1</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -425,7 +425,7 @@
 		<key>desc</key>
 		<string>누가복음 9:23</string>
 		<key>name</key>
-		<string>그리스도 제자의 자격 : 그리스도를 첫자리에 모심 2</string>
+		<string>그리스도를 첫자리에 모심 2</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -444,7 +444,7 @@
 		<key>desc</key>
 		<string>요한일서 2:15~16</string>
 		<key>name</key>
-		<string>그리스도 제자의 자격 : 죄에서 떠남</string>
+		<string>죄에서 떠남</string>
 		<key>messages</key>
 		<array>
 			<dict>
@@ -471,9 +471,87 @@
 	</dict>
 	<dict>
 		<key>desc</key>
+		<string>시편 1:1~3</string>
+		<key>name</key>
+		<string>복있는 사람</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>시편</string>
+				<key>verse</key>
+				<integer>1</integer>
+				<key>chapter</key>
+				<integer>1</integer>
+				<key>text</key>
+				<string>복 있는 사람은 악인들의 꾀를 따르지 아니하며 죄인들의 길에 서지 아니하며 오만한 자들의 자리에 앉지 아니하고</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>시편</string>
+				<key>verse</key>
+				<integer>2</integer>
+				<key>chapter</key>
+				<integer>1</integer>
+				<key>text</key>
+				<string>오직 여호와의 율법을 즐거워하여 그의 율법을 주야로 묵상하는도다</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>시편</string>
+				<key>verse</key>
+				<integer>3</integer>
+				<key>chapter</key>
+				<integer>1</integer>
+				<key>text</key>
+				<string>그는 시냇가에 심은 나무가 철을 따라 열매를 맺으며 그 잎사귀가 마르지 아니함 같으니 그가 하는 모든 일이 다 형통하리로다</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>요한복음 1:1~3</string>
+		<key>name</key>
+		<string>말씀은 곧 하나님</string>
+		<key>messages</key>
+		<array>
+			<dict>
+				<key>book</key>
+				<string>요한복음</string>
+				<key>verse</key>
+				<integer>1</integer>
+				<key>chapter</key>
+				<integer>1</integer>
+				<key>text</key>
+				<string>태초에 말씀이 계시니라 이 말씀이 하나님과 함께 계셨으니 이 말씀은 곧 하나님이시니라</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>요한복음</string>
+				<key>verse</key>
+				<integer>2</integer>
+				<key>chapter</key>
+				<integer>1</integer>
+				<key>text</key>
+				<string>그가 태초에 하나님과 함께 계셨고</string>
+			</dict>
+			<dict>
+				<key>book</key>
+				<string>요한복음</string>
+				<key>verse</key>
+				<integer>3</integer>
+				<key>chapter</key>
+				<integer>1</integer>
+				<key>text</key>
+				<string>만물이 그로 말미암아 지은 바 되었으니 지은 것이 하나도 그가 없이는 된 것이 없느니라</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>desc</key>
 		<string>시편 23:1~6</string>
 		<key>name</key>
-		<string>나의 목자</string>
+		<string>여호와는 나의 목자</string>
 		<key>messages</key>
 		<array>
 			<dict>
