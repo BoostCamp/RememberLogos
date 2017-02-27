@@ -1,18 +1,21 @@
 PODS:
   - ABSteppedProgressBar (0.0.8)
   - BadgeSwift (4.0.0)
+  - TouchVisualizer (2.0.1)
   - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - ABSteppedProgressBar
   - BadgeSwift (~> 4.0)
+  - TouchVisualizer (~> 2.0.1)
   - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   ABSteppedProgressBar: c9f782ab93aba7777f7da0efb8164e73e816f226
   BadgeSwift: b291cf8ca88674d61cd781f14988272988f4dff4
+  TouchVisualizer: d1bd1b438d084245332c222d9e14416c271c5f25
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 0aa3f6ebe588e5ce928db5f3bd23b015366a91cf
+PODFILE CHECKSUM: ae52c073be8aaa10ef0cacdf54fa31dc8a49166f
 
 COCOAPODS: 1.2.0

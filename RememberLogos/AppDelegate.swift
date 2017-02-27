@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//import TouchVisualizer
 
 //let globalTintColor = UIColor(red: 50.0/255.0, green: 200.0/255.0, blue: 210.0/255.0, alpha: 0.5)
 
@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         UIApplication.shared.statusBarStyle = .lightContent
         window?.tintColor = UIColor(red: 50.0/255.0, green: 200.0/255.0, blue: 210.0/255.0, alpha: 0.5)
+//        Visualizer.start()
         return true
     }
 
@@ -39,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         ResultDataController.shared.saveAll()
+//        Visualizer.stop()
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
@@ -53,6 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         ResultDataController.shared.saveAll()
+//        Visualizer.stop()
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 

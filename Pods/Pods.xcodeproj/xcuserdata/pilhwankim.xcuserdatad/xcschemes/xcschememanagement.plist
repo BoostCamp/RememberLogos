@@ -24,25 +24,35 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TouchVisualizer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>287ABBAA3D0C64D9360E472549550D47</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2BB3C7A0D901BA50C22490631DD34A01</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>40D3E428F3E5F2352933A6FB84A7594B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8B7BB8FBB697FDEBFC06C50AAB5EE20D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>DD01C8B0815C75C5FC0FA6774032FF4F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E507D461866B9377D46C5EF2D53B3B49</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EF0E3C3AD354A630D2566EABD107E8CC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
