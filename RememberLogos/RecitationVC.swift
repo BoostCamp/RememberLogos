@@ -36,7 +36,7 @@ class RecitationVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var recitaionEndTimer: Timer!
     
     // Naver Speech
-    private let ClientID = "710CwSWlxkzXAQdSa6CV"
+    private let ClientID = "_QqitOncQmkQu_1kluyu"
     private let nskSpeechRecognizer: NSKRecognizer
     
     // Sound Effect
